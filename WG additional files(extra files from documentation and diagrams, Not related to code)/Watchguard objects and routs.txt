@@ -1,0 +1,50 @@
+Users 
+
+{
+  "_id": ObjectId("5f43a6aaba0ce9a0452872f4"), // MongoDB-generated unique identifier
+  "username": "user123",
+  "email": "user123@example.com",
+  "passwordHash": "hashed_password_here", // Password should be securely hashed
+  "fullName": "John Doe",
+  "dateOfBirth": "1990-05-15",
+  "address": {
+    "street": "123 Main St",
+    "city": "Cityville",
+    "state": "CA",
+    "postalCode": "12345"
+  }
+}
+
+
+
+Posts
+
+{
+  "_id": ObjectId("5f43a6aaba0ce9a0452872f5"), // MongoDB-generated unique identifier
+  "userId": ObjectId("5f43a6aaba0ce9a0452872f4"), // Reference to the user who posted
+  "timestamp": ISODate("2023-09-29T14:30:00Z"), // Timestamp of the post
+  "content": "Just saw a suspicious person near the park. Be cautious, everyone!",
+  "location": {
+    "latitude": 37.12345,
+    "longitude": -122.54321
+  },
+  "tags": ["suspicious activity", "safety", "community"]
+}
+
+
+Routes
+
+http://localhost:5000/api/v1/users
+
+http://localhost:5000/api/v1/admin
+http://localhost:5000/api/v1/law
+
+http://localhost:5000/api/v1/post
+
+http://localhost:5000/api/v1/community_1
+http://localhost:5000/api/v1/community_2
+
+
+
+
+

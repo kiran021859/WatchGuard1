@@ -1,0 +1,114 @@
+{
+  "_id": "609d8e1a0e4cf83b3c8866e1",
+  "username": "john_doe",
+  "email": "john.doe@example.com",
+  "password": "hashed_password",
+  "first_name": "John",
+  "last_name": "Doe",
+  "date_of_birth": "1990-05-15",
+  "address": {
+    "street": "123 Main Street",
+    "city": "Cape Town",
+    "province": "Western Cape",
+    "postal_code": "12345"
+  },
+  "phone_number": "+1 555-123-4567",
+  "profile_picture": "https://example.com/profile_picture.jpg",
+  "role": "user",
+  "preferences": {
+    "language": "en",
+    "theme": "dark",
+    "notifications": true
+  },
+  "account_status": "active",
+  "last_login": "2023-09-30T14:20:00Z",
+  "created_at": "2023-09-30T10:15:00Z",
+  "updated_at": "2023-09-30T14:20:00Z"
+}
+
+
+
+{
+    "_id": "5f43a6aaba0ce9a0452872f5", 
+    "userId": "5f43a6aaba0ce9a0452872f4", 
+    "timestamp": "2023-09-29T14:30:00Z", 
+    "content": "Just saw a suspicious person near the park. Be cautious, everyone!",
+    "location": {
+      "latitude": 37.12345,
+      "longitude": -122.54321
+    },
+    "tags": ["suspicious activity", "safety", "community"]
+  }
+
+
+
+
+
+  {
+    "_id": "5f43a6aaba0ce9a0452872f6", 
+    "name": "Oakwood Heights",
+    "city": "Cityville",
+    "province": "Western Cape",
+    "postalCode": "12345",
+    "description": "A peaceful suburban neighborhood with lush parks and friendly neighbors.",
+    "coordinates": {
+      "latitude": 37.7890,
+      "longitude": -122.4305
+    },
+    "posts": [{
+        "postId": "5f43a6aaba0ce9a0452872f5",
+        "userId": "5f43a6aaba0ce9a0452872f4",
+        "timestamp": "2023-09-29T14:30:00Z",
+    }],
+
+
+
+    {
+        "_id": "5f43a6aaba0ce9a0452872f6", 
+        "name": "Oakwood Heights",
+        "city": "Cityville",
+        "province": "western cape",
+        "postalCode": "12345",
+        "description": "A peaceful suburban neighborhood with lush parks and friendly neighbors.",
+        "coordinates": {
+          "latitude": 37.7890,
+          "longitude": -122.4305
+        },
+        "members": [
+          {
+            "userId": "5f43a6aaba0ce9a0452872f4", 
+            "role": "Resident",
+            "joinedDate": "2023-01-15T10:00:00Z"
+          },
+          {
+            "userId": "5f43a6aaba0ce9a0452872f7",
+            "role": "Community Leader",
+            "joinedDate": "2022-12-05T09:30:00Z"
+          }
+        ],
+        "events": [
+          {
+            "eventName": "Community Cleanup Day",
+            "date": "2023-10-15",
+            "location": "Oakwood Park",
+            "description": "Join us for a day of community cleanup and beautification."
+          },
+          {
+            "eventName": "Neighborhood Watch Meeting",
+            "date": "2023-10-20",
+            "location": "Cityville Community Center",
+            "description": "Discuss safety concerns and plan neighborhood watch activities."
+          }
+        ]
+      }
+
+
+
+
+      {
+        "_id": "5f43a6aaba0ce9a0452872f8", 
+        "postId": "5f43a6aaba0ce9a0452872f5", 
+        "userId": "5f43a6aaba0ce9a0452872f4", 
+        "select": true, 
+        "timestamp": "2023-09-30T09:45:00Z" 
+      }
