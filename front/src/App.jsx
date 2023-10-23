@@ -1,11 +1,11 @@
 import './App.css'
-
+import Post_page from './pages/post page/post_page'
 function App() {
   
 
   return (
     <>
-    <h1 className='text-amber-200'>Helo world</h1>
+    <Post_page/>
     </>
   )
 }
