@@ -15,7 +15,8 @@ function Header() {
 
     const month = currentDateTime.getMonth();
     const day = currentDateTime.getDate();
-    const year = currentDateTime.getFullYear()
+    const year = currentDateTime.getFullYear();
+    
   return (
     <div className="flex w-full justify-between">
     <div className="pt-[30px]">
