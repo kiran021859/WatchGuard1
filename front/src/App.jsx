@@ -1,11 +1,19 @@
 import './App.css'
-import Post_page from './pages/post page/post_page'
+import Post_page from './pages/post page/post_page';
+import {Routes, Route} from 'react-router-dom';
+
+
+
 function App() {
   
 
   return (
     <>
-    <Post_page/>
+    <Routes>
+      <Route index element={<main><Post_page/></main>} />
+      <Route path={'/login'} element={<div>Login</div>} />
+    </Routes>
+    
     </>
   )
 }
