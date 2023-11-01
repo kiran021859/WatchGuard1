@@ -25,7 +25,7 @@ function App() {
     <Route path={'/login'} element={<Login/>} />
     <Route path={'/sign_up'} element={<SignUp/>} />
       <Route path='/user_Dashboard' element={<Layout/>}>
-        <Route path={'/user_Dashboard/post'} element={<main><Post_page/></main>} />
+        <Route path={'/user_Dashboard/post'} element={<Post_page/>} />
         <Route path={'/user_Dashboard/communities'} element={<Communities/>} />
         <Route path={'/user_Dashboard/feedback'} element={<Feedback/>} />
         <Route path={'/user_Dashboard/privacy'} element={<Privacy/>} />

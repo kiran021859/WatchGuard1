@@ -5,8 +5,8 @@ import Header from '../Header/Header';
 
 function Layout() {
   return (
-    <div className=" bg-boring-grey min-h-screen">
-      <div className="w-screen grid grid-cols-page bg-[yellow]">
+    <div className="min-h-screen">
+      <div className="w-screen grid grid-cols-page">
       <div className="bg-[white]">
         <User_navbar/>
       </div>
