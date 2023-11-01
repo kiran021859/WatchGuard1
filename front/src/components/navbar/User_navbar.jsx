@@ -1,19 +1,21 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
 import './user_navbar.css'
+import {FaUsers} from 'react-icons/fa'
 
 function User_navbar() {
   return (
     <>
-    <div className='w-full h-screen bg-[white] flex flex-col '>
+    <div className=' w-[20%] h-screen bg-[white] fixed' id='nav_layout'>
 
-      <div className='' id='nav_heading'>
+      <div className='bg-[yellow] flex justify-center items-center' id='nav_heading'>
         <h1><span>W</span>atchGuard</h1>
       </div>
 
-      <div className=''>
+      <div className='bg-[green] flex flex-col items-center justify-around' id='nav_routes'>
         <div className='' id='nav_communities'>
-          <h1><Link to='/login'>Communities</Link></h1>
+          <FaUsers/>
+          <h1><Link to='/user_Dashboard/post'>Communities</Link></h1>
         </div>
 
         <div className='' id='nav_saftey'>
@@ -33,14 +35,18 @@ function User_navbar() {
         </div>
       </div>
       
-      <div className=''>
-        <button className='' id='nav_login'>
-          <h1><Link to='/login'>Login</Link></h1>
-        </button>
+      <div className='bg-[blue]' id='nav_buttons'>
+        <Link to='/login'>
+          <button className='' id='nav_login'>
+            <h1>Login</h1>
+          </button>
+        </Link>
 
-        <button className='' id='nav_signUp'>
-          <h1><Link to=''>Sign up</Link></h1>
-        </button>
+        <Link to=''>
+          <button className='' id='nav_signUp'>
+          <h1>Sign up</h1>
+          </button>
+        </Link>
       </div>
     </div>
     </>

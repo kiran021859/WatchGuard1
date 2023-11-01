@@ -1,3 +1,11 @@
+#nav_layout{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 20% 60% 20%;
+    
+}
+
+
 #nav_heading h1{
     color: black;
     font-size: 30px;
@@ -70,4 +78,10 @@
     font-family: Poppins;
     font-weight: 400;
     word-wrap: break-word
+}
+
+#nav_buttons{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 50% 50%;
 }
