@@ -1,5 +1,10 @@
 
 import './App.css'
+import Profile from './pages/user profile page/Profile'
+import Help from './pages/help page/Help'
+import Safety from './pages/safety tips page/safety'
+import Privacy from './pages/privacy page/Privacy'
+import Feedback from './pages/feedback page/Feedback'
 import Communities from './pages/communities page/Communities'
 import SignUp from './pages/sign up page/SignUp'
 import Login from './pages/login page/Login'
@@ -25,8 +30,8 @@ function App() {
         <Route path={'/user_Dashboard/feedback'} element={<Feedback/>} />
         <Route path={'/user_Dashboard/privacy'} element={<Privacy/>} />
         <Route path={'/user_Dashboard/safety_tip'} element={<Safety/>} />
-        <Route path={'/user_Dashboard/help'} element={<div>help</div>} />
-        <Route path={'/user_Dashboard/profile'} element={<div>Profile</div>} />
+        <Route path={'/user_Dashboard/help'} element={<Help/>} />
+        <Route path={'/user_Dashboard/profile'} element={<Profile/>} />
       </Route>
     </Routes>
     
