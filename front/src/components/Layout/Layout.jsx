@@ -1,12 +1,40 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Outlet } from 'react-router-dom';
 import User_navbar from '../navbar/User_navbar';
 import Header from '../Header/Header';
 
 function Layout() {
+
+  const [navVisible, setNavVisible] = useState(true);
+  
+
+  
+    
+
+  function handleResize () {
+    const newWindowWidth = window.innerWidth;
+  
+
+  console.log(newWindowWidth);
+  if (newWindowWidth < 768) {
+    setNavVisible(false);
+    console.log('hello');
+  } else {
+    setNavVisible(true);
+  }
+  }
+
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+  
   return (
     <div className="min-h-screen">
-      <div className="grid grid-cols-page">
+      <div className={`grid ${navVisible ? 'grid-cols-page': 'grid-cols-nav'} `}>
       <div className="bg-[white]">
         <User_navbar/>
       </div>

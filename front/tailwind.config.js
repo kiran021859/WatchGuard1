@@ -11,7 +11,8 @@ export default {
         'boring-grey': '#F1F1F1',
       },
       gridTemplateColumns: {
-        'page':'20% 80%'
+        'page':'20% 80%',
+        'nav':'5% 95%'
       },
     },
   },

@@ -1,7 +1,15 @@
-#nav_layout{
+#nav_bar_button{
     display: grid;
+    grid-template-columns: 90% 10%;
+}
+#visible_button{
+    background-color: green;
+}
+
+#nav_layout{
     grid-template-columns: 100%;
     grid-template-rows: 20% 60% 20%;
+   
     
 }
 
@@ -15,8 +23,31 @@
     word-wrap: break-word;
 } 
 
+#nav_heading span{
+    font-size: 60px;
+    background-image: linear-gradient(141deg, rgba(83.94, 221.19, 251.81, 0.70) 1%, #03071E 100%);
+    background-size: cover;
+    color: transparent;
+    -webkit-background-clip: text;
+    text-transform: uppercase;
+}
+
+@media (max-width:1140px) {
+    #nav_heading h1{
+        font-size: 25px;
+        font-weight: 600;
+        letter-spacing: 1.0px;
+    }
+
+    #nav_heading span{
+        font-size: 45px;
+    }
+}
+
+
+
 #nav_communities h1{
-    color: #B1B1B1;
+    color: black;
     font-size: 22px;
     font-family: Poppins;
     font-weight: 400;
@@ -52,14 +83,31 @@
     word-wrap: break-word
 }
 
+@media (max-width:1024px) {
+    
+    #nav_communities h1{  
+        font-size: 16px;
+    }
+    #nav_saftey h1{
+        font-size: 16px;
+    }
+    #nav_feedback h1{
+        font-size: 16px;
+    }
+    #nav_privacy h1{
+        font-size: 16px;
+    }
+    #nav_help h1{
+        font-size: 16px;
+    }
+}
+
+
 #nav_login {
-    width: 100%; 
-    height: 100%; 
     background: rgba(83.94, 221.19, 251.81, 0.70); 
     border-radius: 5px;
 }
 #nav_login h1{
-    color: white;
     font-size: 22px;
     font-family: Poppins;
     font-weight: 400;
@@ -67,16 +115,14 @@
 }
 
 #nav_icon_route {
-  
     display: grid;
-    grid-template-columns: 30% 70%;
+    grid-template-columns: 20% 70%;
     width: 200px;
+    column-gap: 5px;
+    
 }
 
 #nav_icons {
-
-    width: 100%;
-    height: 100%;
     background-color: rgba(83.94, 221.19, 251.81, 0.70);
     display: flex;
     justify-content: center;
@@ -84,14 +130,11 @@
 }
 
 #nav_signUp{
-    width: 100%; 
-    height: 100%; 
     background: rgba(83.94, 221.19, 251.81, 0.70); 
     border-radius: 5px;   
 }
 
 #nav_signUp h1{
-    color: white;
     font-size: 22px;
     font-family: Poppins;
     font-weight: 400;
@@ -122,4 +165,41 @@
 
 #nav_buttons h1{
     color: black;
+}
+
+
+@media (max-width:890px) {
+    #nav_layout{
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 20% 60% 20%;
+        
+    }
+
+    #nav_heading h1{
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 0.8px;
+    }
+
+    #nav_heading span{
+        font-size: 35px;
+    }
+
+    #nav_icon_route {
+        grid-template-columns: 15% 75%;
+        width: 150px;
+       
+    }
+    
+    #nav_buttons button{
+        width: 100px;
+        height: 50px;
+    }
+}
+
+@media (max-height:525px) {
+    #nav_buttons button{
+        height: 40px;
+    }
 }
