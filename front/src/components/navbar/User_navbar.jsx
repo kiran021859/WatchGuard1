@@ -11,7 +11,7 @@ import {FaGripLinesVertical} from 'react-icons/fa'
 function User_navbar() {
   const [navVisible, setNavVisible] = useState(true);
   let [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [navbarSize, setNavbarSize] = useState(true)
+  const [navbarSize, setNavbarSize] = useState(false)
   
     
 
