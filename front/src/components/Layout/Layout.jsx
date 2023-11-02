@@ -35,11 +35,11 @@ function Layout() {
   return (
     <div className="min-h-screen">
       <div className={`grid ${navVisible ? 'grid-cols-page': 'grid-cols-nav'} `}>
-      <div className="bg-[white]">
+      <div className="bg-[white] z-20 h-screen">
         <User_navbar/>
       </div>
 
-      <div className="mt-[40px] mx-[50px]">
+      <div className="mt-[40px] mx-[50px] z-10">
 
           <Header></Header>
 

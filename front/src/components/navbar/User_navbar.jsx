@@ -6,11 +6,12 @@ import {MdFeedback} from 'react-icons/md'
 import {MdPrivacyTip} from 'react-icons/md'
 import {IoIosHelpCircle} from 'react-icons/io'
 import {GiSpartanHelmet} from 'react-icons/gi'
+import {FaGripLinesVertical} from 'react-icons/fa'
 
 function User_navbar() {
   const [navVisible, setNavVisible] = useState(true);
   let [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
+  const [navbarSize, setNavbarSize] = useState(true)
   
     
 
@@ -21,10 +22,20 @@ function User_navbar() {
   
   if (newWindowWidth < 768) {
     setNavVisible(false);
+    
     console.log('hello');
   } else {
     setNavVisible(true);
   }
+
+  if (newWindowWidth > 767){
+    setNavbarSize(false)
+  } else {
+    setNavbarSize(true)
+  }
+
+
+
   }
 
   useEffect(() => {
@@ -33,11 +44,21 @@ function User_navbar() {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+
+   function navShow () {
+    if (navVisible){
+      setNavVisible(false);
+    } else {
+      setNavVisible(true);
+    }
+   }
+
  console.log(navVisible);
 
   return (
     <>
-    <div className={`${navVisible ? 'w-[20%]':'w-[5%]'} h-screen bg-[white] fixed`} id='nav_bar_button'>
+    <div className={`${navVisible ? 'w-[200px]':'w-[5%]'} md:w-[23%]   h-screen bg-[white] fixed`} id='nav_bar_button'>
       <div className={`h-full w-full ${navVisible ? 'grid' : 'hidden'}`}>
 
         <div className=' flex justify-center items-center' id='nav_heading'>
@@ -45,7 +66,7 @@ function User_navbar() {
         </div>
 
         <div className=' flex md:justify-end lg:justify-center' id='nav_routes'>
-          <div className='w-full h-[65%] grid'>
+          <div className='w-full h-[80%] grid'>
             <div className='flex items-center justify-center' id='nav_communities'>
               <div id='nav_icon_route'>
               <div className='bg-[#54DDFC] flex justify-center items-center rounded-lg' id='nav_icon'><FaUsers/></div>
@@ -103,7 +124,7 @@ function User_navbar() {
         </div>
       </div>
       
-        <button id='visible_button'>V</button>
+        <button className={`${navbarSize ? '':'hidden'} flex items-center justify-center `} id='visible_button' onClick={navShow}><FaGripLinesVertical/></button>
       
     </div>
     </>

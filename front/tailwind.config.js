@@ -12,7 +12,7 @@ export default {
       },
       gridTemplateColumns: {
         'page':'20% 80%',
-        'nav':'5% 95%'
+        'nav':'2.5% 97.5%'
       },
     },
   },
