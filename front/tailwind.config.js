@@ -13,7 +13,8 @@ export default {
       gridTemplateColumns: {
         'page':'20% 80%',
         'nav':'2.5% 97.5%',
-        'post':'15% 85% ' 
+        'post':'15% 85% ', 
+        'comment':'90% 10%',
       },
     },
   },

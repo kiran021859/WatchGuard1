@@ -1,9 +1,21 @@
+#post_block{
+    width: 800px;
+    height: auto;
+    overflow: hidden; 
+}
+
+#profile_pic{
+    margin-top: 40px;
+    margin-right: 20px;
+}
+
 #user_name { 
     color: black; 
     font-size: 25px; 
     font-family: Poppins; 
     font-weight: 400; 
-    word-wrap: break-word
+    word-wrap: break-word;
+    margin-top: 60px;
 }
 
 #posted_time{
@@ -15,11 +27,12 @@
 }
 
 #post_type{
-    width: 15%; 
-    height: 7.5%; 
+    width: 100px; 
+    height: 40px; 
     background: rgba(83.94, 221.19, 251.81, 0.70); 
     box-shadow: 0px 4px 10px rgba(83.94, 221.19, 251.81, 0.20); 
-    border-radius: 2px
+    border-radius: 2px;
+    margin-top: 10px;
 }
 
 #post_type h5{
@@ -38,16 +51,18 @@
     font-size: 25px; 
     font-family: Poppins; 
     font-weight: 400; 
-    word-wrap: break-word
+    word-wrap: break-word;
+    margin-top: 10px;
 }
 
 #post_text{
-    width: 100%; 
+    width: 80%; 
     color: black; 
     font-size: 17px; 
     font-family: Poppins; 
     font-weight: 300; 
     word-wrap: break-word;
+    margin-top: 10px;
     
 }
 
@@ -56,15 +71,17 @@
     font-size: 17px; 
     font-family: Poppins; 
     font-weight: 300; 
-    word-wrap: break-word
+    word-wrap: break-word;
+    margin-top: 10px;
 }
 
 
 
-#post_input{ 
-    height: 100%; 
+#comment_input{ 
+    height: 100%;
+    width: 100%; 
     background: rgba(141, 153, 174, 0.20); 
-    border-radius: 5px
+    border-radius: 5px;
 }
 
 #post_button {
@@ -72,5 +89,53 @@
     height: 30px; 
     background: rgba(83.94, 221.19, 251.81, 0.70); 
     box-shadow: 0px 4px 10px rgba(83.94, 221.19, 251.81, 0.20); 
-    border-radius: 5px
+    border-radius: 5px;
+    
+}
+
+
+@media (max-width:1130px) {
+    #post_block{
+        width: 700px;
+    }
+    
+}
+
+@media (max-width:1025px) {
+    #post_block{
+        width: 600px;
+        overflow: hidden; 
+    }
+    
+}
+
+@media (max-width:880px) {
+    #post_block{
+        width: 550px;
+        overflow: hidden; 
+       
+    }
+    
+}
+
+@media (max-width:768px) {
+    #post_block{
+        width: 100%;
+        overflow: hidden; 
+       
+    }
+    
+}
+
+@media (max-width:425px){
+    #post_heading {
+        font-size: 20px;
+    }
+
+    #post_text{
+        width: 90%; 
+        font-size: 12px; 
+        
+        
+    }
 }

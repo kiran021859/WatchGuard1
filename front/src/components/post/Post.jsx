@@ -1,23 +1,64 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import User from '../../assets/pictures/user_pic_1.png' 
 import './post.css'
 
 function Post() {
+
+  const [currentDateTime, setCurrentDateTime] = useState(new Date());
+
+    useEffect(() => {
+      const intervalId = setInterval(() => {
+        setCurrentDateTime(new Date());
+      }, 60000); // Update the time every second
+  
+      return () => clearInterval(intervalId); // Cleanup the interval when the component unmounts
+    }, []);
+
+    const month = String(currentDateTime.getMonth());
+    const day = String(currentDateTime.getDate());
+    const year = String(currentDateTime.getFullYear());
+
+    const [postLayout, setPostLayout] = useState(true);
+
+
+    function handleResize () {
+      const newWindowWidth = window.innerWidth;
+      setPostLayout(newWindowWidth);
+  
+    
+    if (newWindowWidth < 1024) {
+      setPostLayout(false);
+    } else {
+      setPostLayout(true);
+    }
+    }
+
+    useEffect(() => {
+      window.addEventListener('resize', handleResize);
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }, []);
+
+
+
+
+
   return (
     <>
-    <div className='w-[800px] min-h-[500px] grid grid-cols-page bg-[white] border-2 border-slate-950 rounded-lg mt-[30px] mb-[30px]'>
+    <div id='post_block' className={` grid ${postLayout ? 'grid-cols-post':'grid-cols-post'} bg-[white] border-2 border-slate-950 rounded-lg mt-[30px] mb-[30px]`}>
 
-      <div id='' className='w-full h-full bg-[blue]'>
-        <div id='' className=' w-[100px] h-[100px] rounded-[100px] bg-center bg-cover' style={{backgroundImage: `url(${User})`}}></div>
+      <div id='' className='w-full h-full flex justify-end'>
+        <div id='profile_pic' className=' w-[80px] h-[80px] rounded-[100px] bg-center bg-cover' style={{backgroundImage: `url(${User})`}}></div>
       </div>
 
-      <div id='' className='w-full h-full bg-[yellow]'>
+      <div id='' className='w-full h-full '>
 
         <h2 id='user_name' className='' >User Name</h2>
 
-        <h3 id='posted_time' className='' >posted|<span>Time</span></h3>
+        <h3 id='posted_time' className='' >posted|<span>time  {day} {month} {year}</span></h3>
 
-        <div id='post_type' className='' ><h5>Safety</h5></div>
+        <div id='post_type' className='flex justify-center items-center' ><h5>Safety</h5></div>
 
         <h1 id='post_heading' className='' >Post Headding Here</h1>
 
@@ -30,15 +71,15 @@ function Post() {
           justo turpis, in suscipit massa faucibus dapibus. Maecenas quis turpis massa. 
         </p>
 
-        <div id='' className='flex' >
-          <div id='post_tag' className='' >#freeus</div>
+        <div id='post_tag' className='flex' >
+          <div id='' className='' >#freeus</div>
           <div id='' className='' >#saveus</div>
         </div>
 
-        <div id='' className='' >
+        <div id='' className='grid grid-cols-comment mt-[10px] mb-[40px] pr-[130px] gap-6 '>
 
           <form id='' className='' >
-            <input id='post_input' className='' ></input>
+            <input id='comment_input' className='' ></input>
           </form>
 
           <button id='post_button' className='' >

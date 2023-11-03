@@ -17,13 +17,11 @@ function User_navbar() {
 
   function handleResize () {
     const newWindowWidth = window.innerWidth;
-  setWindowWidth(newWindowWidth);
+    setWindowWidth(newWindowWidth);
 
   
   if (newWindowWidth < 768) {
     setNavVisible(false);
-    
-    console.log('hello');
   } else {
     setNavVisible(true);
   }
@@ -54,7 +52,7 @@ function User_navbar() {
     }
    }
 
- console.log(navVisible);
+
 
   return (
     <>

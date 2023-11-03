@@ -2,28 +2,21 @@ import React, {useState, useEffect} from 'react';
 import { Outlet } from 'react-router-dom';
 import User_navbar from '../navbar/User_navbar';
 import Header from '../Header/Header';
+import './layout.css'
 
 function Layout() {
 
   const [navVisible, setNavVisible] = useState(true);
-  
-
-  
-    
 
   function handleResize () {
     const newWindowWidth = window.innerWidth;
-  
-
-  console.log(newWindowWidth);
-  if (newWindowWidth < 768) {
-    setNavVisible(false);
-    console.log('hello');
-  } else {
-    setNavVisible(true);
+    if (newWindowWidth < 768) {
+      setNavVisible(false);
+      
+    } else {
+      setNavVisible(true);
+    }
   }
-  }
-
 
   useEffect(() => {
     window.addEventListener('resize', handleResize);
@@ -39,7 +32,7 @@ function Layout() {
         <User_navbar/>
       </div>
 
-      <div className="mt-[40px] mx-[50px] z-10">
+      <div id='header' className="mt-[40px] z-10">
 
           <Header></Header>
 
