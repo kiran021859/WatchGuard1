@@ -46,22 +46,23 @@ function Post() {
 
   return (
     <>
-    <div id='post_block' className={` grid ${postLayout ? 'grid-cols-post':'grid-cols-post'} bg-[white] border-2 border-slate-950 rounded-lg mt-[30px] mb-[30px]`}>
+    <div id='post_block' className=' bg-[white] border-2 border-slate-950 rounded-lg mt-[30px] mb-[30px]'>
 
-      <div id='' className='w-full h-full flex justify-end'>
+      <div id='profile_div1' className='w-full h-full'>
         <div id='profile_pic' className=' w-[80px] h-[80px] rounded-[100px] bg-center bg-cover' style={{backgroundImage: `url(${User})`}}></div>
       </div>
 
-      <div id='' className='w-full h-full '>
+      <div id='profile_div2' className='w-full h-full '>
 
         <h2 id='user_name' className='' >User Name</h2>
 
         <h3 id='posted_time' className='' >posted|<span>time  {day} {month} {year}</span></h3>
-
+        <div id='post_type_div' >
         <div id='post_type' className='flex justify-center items-center' ><h5>Safety</h5></div>
+        </div>
 
         <h1 id='post_heading' className='' >Post Headding Here</h1>
-
+        <div id='post_text_div'>
         <p id='post_text' className='' >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           Praesent vitae est sit amet dolor rhoncus fringilla non non lorem. 
@@ -70,22 +71,25 @@ function Post() {
           sollicitudin. Cras at nisl risus. Cras fringilla vitae libero a pulvinar. Ut euismod 
           justo turpis, in suscipit massa faucibus dapibus. Maecenas quis turpis massa. 
         </p>
+        </div>
 
         <div id='post_tag' className='flex' >
           <div id='' className='' >#freeus</div>
           <div id='' className='' >#saveus</div>
         </div>
 
-        <div id='' className='grid grid-cols-comment mt-[10px] mb-[40px] pr-[130px] gap-6 '>
+        <div id='comments_div'>
+          <div id='form_div' className=' mt-[10px] mb-[40px] pr-[130px] gap-6 '>
 
-          <form id='' className='' >
-            <input id='comment_input' className='' ></input>
-          </form>
+            <form id='' className='' >
+              <input id='comment_input' className='' ></input>
+            </form>
 
-          <button id='post_button' className='' >
-            Send
-          </button>
+            <button id='post_button' className='' >
+              Send
+            </button>
 
+          </div>
         </div>
 
       </div>

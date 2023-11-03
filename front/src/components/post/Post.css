@@ -2,6 +2,13 @@
     width: 800px;
     height: auto;
     overflow: hidden; 
+    display: grid;
+    grid-template-columns: 15% 85%;
+}
+
+#profile_div1{
+    display: flex;
+    justify-content: end;
 }
 
 #profile_pic{
@@ -93,6 +100,11 @@
     
 }
 
+#form_div{
+    display: grid;
+    grid-template-columns: 90% 10%;
+}
+
 
 @media (max-width:1130px) {
     #post_block{
@@ -105,6 +117,7 @@
     #post_block{
         width: 600px;
         overflow: hidden; 
+        grid-template-columns: 20% 80%;
     }
     
 }
@@ -125,6 +138,61 @@
        
     }
     
+}
+
+
+@media (max-width:600px) {
+    #post_block{
+        grid-template-columns: 100%;
+    }
+
+    #profile_div1{
+        display: flex;
+        justify-content: center;
+    }
+
+    #profile_div2{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    #post_type{
+        display: flex;
+        justify-content: center;
+        
+    }
+
+    #post_text_div{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    #post_type_div{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    #post_tag{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    #comments_div{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    #form_div{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 100%;
+        
+    }
 }
 
 @media (max-width:425px){
