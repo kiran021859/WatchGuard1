@@ -104,7 +104,7 @@ function User_navbar() {
         
         <div className='' id='nav_buttons'>
           <div className='' id='nav-buttons-center'>
-            <Link to='/login'>
+            <Link to='/user_Dashboard/login'>
               <button className='' id='nav_login'>
                 <h1>Login</h1>
               </button>
@@ -112,7 +112,7 @@ function User_navbar() {
           </div>
 
           <div className='' id='nav-buttons-center'>
-            <Link to=''>
+            <Link to='/user_Dashboard/sign_up'>
               <button className='' id='nav_signUp'>
               <h1>Sign up</h1>
               </button>
