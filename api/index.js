@@ -6,6 +6,7 @@ const mongoose = require('mongoose')
 const bcrypt = require('bcrypt');
 const connectDB = require('./db/connect');
 const jwt = require('jsonwebtoken')
+const cookieParser = require('cookie-parser')
 const port = process.env.PORT || 4000
 const salt = bcrypt.genSaltSync(10);
 const secret = process.env.SECRET;
@@ -14,6 +15,7 @@ const User = require('./models/users');
 
 app.use(cors({credentials:true, origin:'http://localhost:5173'}));
 app.use(express.json());
+app.use(cookieParser())
 
 
 
@@ -50,6 +52,17 @@ app.post('/login', async (req, res) => {
     
 });
 
+app.get('/profile', (req,res) => {
+    const {token} = req.cookies;
+    jwt.verify(token, secret, {}, (err,info)=>{
+        if (err) throw err;
+        res.json(info)
+    })
+})
+
+app.post('/logout', (req, res) => {
+    res.clearCookie('token').json('ok');
+});
 
 
 const start = async ()=>{

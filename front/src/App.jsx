@@ -12,6 +12,7 @@ import Layout from './components/Layout/Layout';
 import Landing from './pages/landing page/Landing';
 import Post_page from './pages/post page/post_page';
 import {Routes, Route} from 'react-router-dom';
+import { UserContextProvider } from './context/userContext'
 
 
 
@@ -20,6 +21,9 @@ function App() {
 
   return (
     <>
+
+    <UserContextProvider>
+
     <Routes>
     <Route index element={<Landing/>} />
     <Route path={'/login'} element={<Login/>} />
@@ -36,6 +40,9 @@ function App() {
         <Route path={'/user_Dashboard/sign_up'} element={<SignUp/>} />
       </Route>
     </Routes>
+
+    </UserContextProvider>
+   
     
     </>
   )
