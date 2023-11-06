@@ -27,7 +27,20 @@ app.post('/register', async (req, res) => {
         console.log(e);
         res.status(400).json(e)
     }
-})
+});
+
+app.post('/login', async (req, res) => {
+    const {username, password} = req.body;
+    const userDoc = await User.findOne({username})
+    const passOk = bcrypt.compareSync(password, userDoc.password);
+    res.json(passOk)
+    if(passOk){
+        
+    } else {
+        res.status(400).json('wrong cridentials')
+    }
+    
+});
 
 
 
