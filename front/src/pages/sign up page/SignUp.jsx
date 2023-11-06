@@ -29,6 +29,7 @@ function SignUp() {
     } catch (error) {
       setError('Registration failed'); 
       console.error('Error during registration:', error);
+      alert("registration failed")
     }
   }
   return (
