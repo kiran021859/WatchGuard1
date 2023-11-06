@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import './login_style.css'
 
 function Login() {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  //const [redirect, setRedirect] = useState(false);
+  const navigate = useNavigate();
 
   async function login (ev) {
     ev.preventDefault();
@@ -15,23 +17,27 @@ function Login() {
         method: 'POST',
         body: JSON.stringify({ username, password }),
         headers: { 'Content-Type': 'application/json' },
-      });
+        credentials: 'include'
+      })
 
-      if (!response.ok) {
-        
+      if (response.ok) {    
+
+        navigate('/user_Dashboard/communities')
+
+      } else if (!response.ok) {
+        alert('Wrong Credentials');
         throw new Error('login failed');
       }
-
-     
-      console.log('login successful');
-      
 
     } catch (error) {
       setError('login failed'); 
       console.error('Error during login:', error);
       alert("login failed")
     }
+
   }
+
+  
 
   return (
     <>

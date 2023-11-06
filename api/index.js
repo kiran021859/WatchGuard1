@@ -12,7 +12,7 @@ const secret = process.env.SECRET;
 //import user schema
 const User = require('./models/users');
 
-app.use(cors());
+app.use(cors({credentials:true, origin:'http://localhost:5173'}));
 app.use(express.json());
 
 
@@ -41,7 +41,7 @@ app.post('/login', async (req, res) => {
                 console.error(err);
                 res.status(500).json('Token generation failed'); // Token generation failed
             } else {
-                res.json({ token });
+                res.cookie('token', token).json('ok');
             }
         });
     } else {
