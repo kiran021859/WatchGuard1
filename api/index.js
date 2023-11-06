@@ -5,8 +5,10 @@ const app = express();
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt');
 const connectDB = require('./db/connect');
+const jwt = require('jsonwebtoken')
 const port = process.env.PORT || 4000
 const salt = bcrypt.genSaltSync(10);
+const secret = process.env.SECRET;
 //import user schema
 const User = require('./models/users');
 
@@ -33,9 +35,15 @@ app.post('/login', async (req, res) => {
     const {username, password} = req.body;
     const userDoc = await User.findOne({username})
     const passOk = bcrypt.compareSync(password, userDoc.password);
-    res.json(passOk)
     if(passOk){
-        
+        jwt.sign({ username, id: userDoc._id }, secret, {}, (err, token) => {
+            if (err) {
+                console.error(err);
+                res.status(500).json('Token generation failed'); // Token generation failed
+            } else {
+                res.json({ token });
+            }
+        });
     } else {
         res.status(400).json('wrong cridentials')
     }
