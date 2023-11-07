@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import User from '../../assets/pictures/user_pic_1.png' 
-import './post.css'
+import './Post.css'
 
 function Post() {
 
