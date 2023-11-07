@@ -46,7 +46,7 @@ const username = userInfo?.username
     <div className="pt-[30px]">
     {username && (
       <>
-      <Link to="/create_post">Make Post</Link>
+      <Link to="/user_Dashboard/create_post">Make Post</Link>
       <a onClick={logout}>logout</a>
       </>
     )}

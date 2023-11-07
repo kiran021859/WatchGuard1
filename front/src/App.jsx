@@ -1,16 +1,17 @@
 
-import './App.css'
-import Profile from './pages/user profile page/Profile'
-import Help from './pages/help page/Help'
-import Safety from './pages/safety tips page/safety'
-import Privacy from './pages/privacy page/Privacy'
-import Feedback from './pages/feedback page/Feedback'
-import Communities from './pages/communities page/Communities'
-import SignUp from './pages/sign up page/SignUp'
-import Login from './pages/login page/Login'
+import './App.css';
+import Profile from './pages/user profile page/Profile';
+import Help from './pages/help page/Help';
+import Safety from './pages/safety tips page/safety';
+import Privacy from './pages/privacy page/Privacy';
+import Feedback from './pages/feedback page/Feedback';
+import Communities from './pages/communities page/Communities';
+import SignUp from './pages/sign up page/SignUp';
+import Login from './pages/login page/Login';
 import Layout from './components/Layout/Layout';
 import Landing from './pages/landing page/Landing';
 import Post_page from './pages/post page/post_page';
+import Post_functionality from './pages/post fuctionality/Post_functionality';
 import {Routes, Route} from 'react-router-dom';
 import { UserContextProvider } from './context/userContext'
 
@@ -30,6 +31,7 @@ function App() {
     <Route path={'/sign_up'} element={<SignUp/>} />
       <Route path='/user_Dashboard' element={<Layout/>}>
         <Route path={'/user_Dashboard/post'} element={<Post_page/>} />
+        <Route path={'/user_Dashboard/create_post'} element={<Post_functionality/>} />
         <Route path={'/user_Dashboard/communities'} element={<Communities/>} />
         <Route path={'/user_Dashboard/feedback'} element={<Feedback/>} />
         <Route path={'/user_Dashboard/privacy'} element={<Privacy/>} />

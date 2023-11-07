@@ -19,6 +19,8 @@ app.use(cookieParser())
 
 
 
+
+
 app.post('/register', async (req, res) => {
     
     const {username, password} = req.body;
@@ -43,7 +45,10 @@ app.post('/login', async (req, res) => {
                 console.error(err);
                 res.status(500).json('Token generation failed'); // Token generation failed
             } else {
-                res.cookie('token', token).json('ok');
+                res.cookie('token', token).json({
+                    id:userDoc._id,
+                    username
+                });
             }
         });
     } else {
@@ -63,6 +68,10 @@ app.get('/profile', (req,res) => {
 app.post('/logout', (req, res) => {
     res.clearCookie('token').json('ok');
 });
+
+
+
+
 
 
 const start = async ()=>{

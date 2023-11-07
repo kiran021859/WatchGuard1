@@ -1,11 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import './login_style.css'
+import { UserContext } from '../../context/userContext';
 
 function Login() {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState(null);
+  const {setUserInfo} = useContext(UserContext);
   //const [redirect, setRedirect] = useState(false);
   const navigate = useNavigate();
 
@@ -22,6 +25,9 @@ function Login() {
 
       if (response.ok) {    
 
+        response.json().then(userInfo => {
+          setUserInfo(userInfo)
+        })
         navigate('/user_Dashboard/communities')
 
       } else if (!response.ok) {
