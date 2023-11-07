@@ -9,7 +9,7 @@ function Post() {
     useEffect(() => {
       const intervalId = setInterval(() => {
         setCurrentDateTime(new Date());
-      }, 60000); // Update the time every second
+      }, 60000); // Update the time every second//
   
       return () => clearInterval(intervalId); // Cleanup the interval when the component unmounts
     }, []);
