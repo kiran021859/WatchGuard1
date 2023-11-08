@@ -33,12 +33,15 @@ function Post_functionality() {
     const data = new FormData();
     data.set('Title', postTitle);
     data.set('Summary', postSummary);
+    data.set('Content', content);
     data.set('File', postFiles[0] )
     ev.preventDefault();
     const response = await fetch('http://localhost:4000/postData', {
       method: 'POST',
       body: data,
     })
+
+    console.log(content);
   }
 
   return (

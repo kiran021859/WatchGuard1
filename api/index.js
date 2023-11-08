@@ -15,6 +15,7 @@ const salt = bcrypt.genSaltSync(10);
 const secret = process.env.SECRET;
 //import user schema
 const User = require('./models/users');
+const Post = require('./models/post')
 
 app.use(cors({credentials:true, origin:'http://localhost:5173'}));
 app.use(express.json());
@@ -78,6 +79,9 @@ app.post('/postData', uploadMiddleware.single('File'), (req,res) => {
     const ext = parts[parts.length - 1];
     const newPath = path+'.'+ext;
     fs.renameSync(path, newPath );
+
+    //const {Title, Summary, content} = req.file
+    //Post.create({})
     res.json({ext})
 })
 
