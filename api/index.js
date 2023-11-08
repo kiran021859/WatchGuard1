@@ -73,16 +73,28 @@ app.post('/logout', (req, res) => {
     res.clearCookie('token').json('ok');
 });
 
-app.post('/postData', uploadMiddleware.single('File'), (req,res) => {
+app.post('/postData', uploadMiddleware.single('File'), async (req,res) => {
     const {originalname, path} = req.file;
     const parts = originalname.split('.');
     const ext = parts[parts.length - 1];
     const newPath = path+'.'+ext;
     fs.renameSync(path, newPath );
 
-    //const {Title, Summary, content} = req.file
-    //Post.create({})
-    res.json({ext})
+    const {Title, Summary, Content} = req.body
+    try {
+    const watchPost = await Post.create({
+        Title, 
+        Summary, 
+        Content,
+        cover:newPath,
+    })
+    res.json(watchPost)
+    } catch (e){
+        console.log(e);
+        res.status(400).json(e)
+    }
+
+    
 })
 
 
