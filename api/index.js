@@ -1,12 +1,15 @@
 require('dotenv').config();
 const express = require('express');
-var cors = require('cors')
+var cors = require('cors');
 const app = express();
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const connectDB = require('./db/connect');
-const jwt = require('jsonwebtoken')
-const cookieParser = require('cookie-parser')
+const jwt = require('jsonwebtoken');
+const cookieParser = require('cookie-parser');
+const fs = require('fs')
+const multer  = require('multer');
+const uploadMiddleware = multer({ dest: 'uploads/' })
 const port = process.env.PORT || 4000
 const salt = bcrypt.genSaltSync(10);
 const secret = process.env.SECRET;
@@ -69,6 +72,14 @@ app.post('/logout', (req, res) => {
     res.clearCookie('token').json('ok');
 });
 
+app.post('/postData', uploadMiddleware.single('File'), (req,res) => {
+    const {originalname, path} = req.file;
+    const parts = originalname.split('.');
+    const ext = parts[parts.length - 1];
+    const newPath = path+'.'+ext;
+    fs.renameSync(path, newPath );
+    res.json({ext})
+})
 
 
 
