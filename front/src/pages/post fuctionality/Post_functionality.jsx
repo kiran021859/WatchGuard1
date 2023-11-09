@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './post.css';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import { Navigate } from 'react-router-dom';
 
 function Post_functionality() {
   const  modules = {
@@ -27,6 +28,7 @@ function Post_functionality() {
   const [postSummary, setPostSummary] = useState('')
   const [postFiles, setPostFiles] = useState('')
   const [content, setContent] = useState('')
+  const [redirect, setRedirect] = useState(false)
 
 
   async function createNewPost (ev) {
@@ -41,9 +43,17 @@ function Post_functionality() {
       body: data,
       
     })
+    if(response.ok) {
+      setRedirect(true)
+    }
+
     
   }
 
+  if(redirect) {
+    return <Navigate to={'/user_Dashboard/post'}/>
+  }
+  
   return (
     <>
     <form onSubmit={createNewPost} className='flex flex-col w-full h-auto' >
