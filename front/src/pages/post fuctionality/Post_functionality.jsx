@@ -31,10 +31,10 @@ function Post_functionality() {
 
   async function createNewPost (ev) {
     const data = new FormData();
-    data.set('Title', postTitle);
-    data.set('Summary', postSummary);
-    data.set('Content', content);
-    data.set('File', postFiles[0] )
+    data.set('title', postTitle);
+    data.set('summary', postSummary);
+    data.set('content', content);
+    data.set('file', postFiles[0] )
     ev.preventDefault();
     const response = await fetch('http://localhost:4000/postData', {
       method: 'POST',
@@ -50,7 +50,7 @@ function Post_functionality() {
 
         <input 
         type='title' 
-        placeholder='Title' 
+        placeholder='title' 
         value={postTitle}
         onChange={ev => setPostTitle(ev.target.value)}
         className='block mb-[5px] w-[100%] p-[7px] bg-[#fff] border-solid border-2 border-sky-400 rounded-lg '>
@@ -59,7 +59,7 @@ function Post_functionality() {
 
         <input 
         type='summary' 
-        placeholder='Summary' 
+        placeholder='summary' 
         value={postSummary}
         onChange={ev => setPostSummary(ev.target.value)}
         className='block mb-[5px] w-[100%] p-[7px] bg-[#fff] border-solid border-2 border-sky-400 rounded-lg '>
@@ -69,6 +69,7 @@ function Post_functionality() {
         <input 
         type='file' 
         //value={postFiles.name}
+        name='file'
         placeholder='' 
         onChange={ev => setPostFiles(ev.target.files)}
         className='block mb-[5px] w-[100%] p-[7px] bg-[#fff] border-solid border-2 border-sky-400 rounded-lg '>
