@@ -9,7 +9,7 @@ const PostSchema = new Schema({
     //author:{type:Schema.Types.ObjectId, ref:'User'},
 
 }, {
-    timestamps: true
+    timestamps: true,
 });
 
 module.exports = model('post', PostSchema)

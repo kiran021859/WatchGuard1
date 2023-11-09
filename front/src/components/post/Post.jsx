@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import User from '../../assets/pictures/user_pic_1.png' 
 import './Post.css'
+import { format, formatISO9075 } from 'date-fns'
 
-function Post({title, summary, cover, content}) {
+function Post({title, summary, cover, content, createdAt}) {
 
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
 
@@ -41,8 +42,8 @@ function Post({title, summary, cover, content}) {
     }, []);
 
 
-
-
+    // {formatISO9075(new Date(createdAt))}
+   var newCreatedAt = parseInt(createdAt)
 
   return (
     <>
@@ -56,7 +57,7 @@ function Post({title, summary, cover, content}) {
 
         <h2 id='user_name' className='' >User Name</h2>
 
-        <h3 id='posted_time' className='' >posted|<span>time  {day} {month} {year}</span></h3>
+        <h3 id='posted_time' className='' >posted|<span></span></h3>
         <div id='post_type_div' >
         <div id='post_type' className='flex justify-center items-center' ><h5>Safety</h5></div>
         </div>
