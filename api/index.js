@@ -97,7 +97,10 @@ app.post('/postData', uploadMiddleware.single('file'), async (req,res) => {
     
 })
 
-
+app.get('/postData', async (req,res) => {
+    const posts = await Post.find();
+    res.json(posts);
+})
 
 
 

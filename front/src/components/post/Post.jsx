@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import User from '../../assets/pictures/user_pic_1.png' 
 import './Post.css'
 
-function Post() {
+function Post({title, summary, cover, content}) {
 
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
 
@@ -61,15 +61,10 @@ function Post() {
         <div id='post_type' className='flex justify-center items-center' ><h5>Safety</h5></div>
         </div>
 
-        <h1 id='post_heading' className='' >Post Headding Here</h1>
+        <h1 id='post_heading' className='' >{title}</h1>
         <div id='post_text_div'>
         <p id='post_text' className='' >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Praesent vitae est sit amet dolor rhoncus fringilla non non lorem. 
-          Sed odio nibh, volutpat et urna sodales, mollis malesuada leo. Suspendisse urna ex,
-          consectetur bibendum tempor non, mattis id ante. Quisque tristique eu felis euismod 
-          sollicitudin. Cras at nisl risus. Cras fringilla vitae libero a pulvinar. Ut euismod 
-          justo turpis, in suscipit massa faucibus dapibus. Maecenas quis turpis massa. 
+           {content}
         </p>
         </div>
 
