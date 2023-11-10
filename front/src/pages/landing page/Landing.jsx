@@ -6,13 +6,6 @@ function Landing() {
   return (
     <>
     <Navbar/>
-
-
-    
-    <Link to='/login'>Login</Link><br></br>
-    <Link to='/sign_up'>Sign Up</Link><br></br>
-    <Link to='/'>Landing</Link><br></br>
-    <Link to='/user_Dashboard/communities'>Communities</Link>
     </>
   )
 }

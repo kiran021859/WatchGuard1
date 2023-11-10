@@ -33,6 +33,7 @@ app.post('/register', async (req, res) => {
             username,
             password:bcrypt.hashSync(password, salt),
         })
+        res.status(200).json({'reasponse':'ok'})
     } catch (e) {
         console.log(e);
         res.status(400).json(e)

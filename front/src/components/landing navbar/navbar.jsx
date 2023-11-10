@@ -41,10 +41,8 @@ function Navbar() {
 
             
               <div className="navlist">
-                    <Link to='/login' onClick={open_menu}><div id='link'>Login</div></Link>
                     <Link to='/sign_up' onClick={open_menu}><div id='link'>Sign Up</div></Link>
-                    <Link to='/' onClick={open_menu}><div id='link'>Landing</div></Link>
-                    <Link to='/user_Dashboard/communities' onClick={open_menu}><div id='link'>Communities</div></Link>
+                    <Link to='/login' onClick={open_menu}><div id='link'>Login</div></Link>
               </div>
             
 

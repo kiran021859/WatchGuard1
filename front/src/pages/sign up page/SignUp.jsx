@@ -1,11 +1,12 @@
 import React, {useState} from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import './SignUp_style.css'
 
 function SignUp() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null); // State variable for error handling
+  const navigate = useNavigate();
 
   async function signUp(ev) {
     ev.preventDefault();
@@ -17,8 +18,9 @@ function SignUp() {
         headers: { 'Content-Type': 'application/json' },
       });
 
-      if (!response.ok) {
-        
+      if (response.ok) {
+        navigate('/login')
+      } else if (!response.ok) {
         throw new Error('Registration failed');
       }
 
@@ -36,10 +38,6 @@ function SignUp() {
     <>
     <div>
     <div>SignUp</div>
-    <Link to='/sign_up'>Sign Up</Link><br></br>
-    <Link to='/login'>Login</Link><br></br>
-    <Link to='/'>Landing</Link><br></br>
-    <Link to='/user_Dashboard/communities'>Communities</Link>
     </div>
     <div>
       <form action='' onSubmit={signUp} className='max-w-[400px] m-auto '>
