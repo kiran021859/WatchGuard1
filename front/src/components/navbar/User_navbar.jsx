@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {Link} from 'react-router-dom'
 import './user_navbar.css'
 import {FaUsers} from 'react-icons/fa'
@@ -7,11 +7,13 @@ import {MdPrivacyTip} from 'react-icons/md'
 import {IoIosHelpCircle} from 'react-icons/io'
 import {GiSpartanHelmet} from 'react-icons/gi'
 import {FaGripLinesVertical} from 'react-icons/fa'
+import { UserContext } from "../../context/userContext";
 
 function User_navbar() {
   const [navVisible, setNavVisible] = useState(true);
   let [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [navbarSize, setNavbarSize] = useState(false)
+  const {setUserInfo, userInfo} = useContext(UserContext)
   
     
 
@@ -51,6 +53,25 @@ function User_navbar() {
       setNavVisible(true);
     }
    }
+
+   useEffect(() => {
+    fetch('http://localhost:4000/profile', {
+      credentials: 'include'
+    }).then(response => {
+      response.json().then(userInfo => {
+        setUserInfo(userInfo)
+      })
+    })
+
+  },[])
+
+  function logout () {
+    fetch('http://localhost:4000/logout', {
+      credentials: 'include',
+      method: 'POST'
+    })
+    setUserInfo(null)
+  }
 
 
 
@@ -104,17 +125,17 @@ function User_navbar() {
         
         <div className='' id='nav_buttons'>
           <div className='' id='nav-buttons-center'>
-            <Link to='/user_Dashboard/login'>
+            <Link to='/user_Dashboard/profile'>
               <button className='' id='nav_login'>
-                <h1>Login</h1>
+                <h1>Profile</h1>
               </button>
             </Link>
           </div>
 
           <div className='' id='nav-buttons-center'>
-            <Link to='/user_Dashboard/sign_up'>
-              <button className='' id='nav_signUp'>
-              <h1>Sign up</h1>
+            <Link to='' >
+              <button className='' id='nav_signUp' onClick={logout}>
+              <h1>Logout</h1>
               </button>
             </Link>
           </div>
@@ -122,7 +143,7 @@ function User_navbar() {
         </div>
       </div>
       
-        <button className={`${navbarSize ? '':'hidden'} flex items-center justify-center `} id='visible_button' onClick={navShow}><FaGripLinesVertical/></button>
+        <button className={`${navbarSize ? '':'hidden'} flex items-center justify-center bg-boring-blue`} id='visible_button' onClick={navShow}><FaGripLinesVertical/></button>
       
     </div>
     </>

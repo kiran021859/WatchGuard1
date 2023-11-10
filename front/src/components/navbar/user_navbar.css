@@ -2,9 +2,6 @@
     display: grid;
     grid-template-columns: 90% 10%;
 }
-#visible_button{
-    background-color: green;
-}
 
 #nav_layout{
     grid-template-columns: 100%;

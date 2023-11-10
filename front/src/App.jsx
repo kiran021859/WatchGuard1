@@ -38,8 +38,6 @@ function App() {
         <Route path={'/user_Dashboard/safety_tip'} element={<Safety/>} />
         <Route path={'/user_Dashboard/help'} element={<Help/>} />
         <Route path={'/user_Dashboard/profile'} element={<Profile/>} />
-        <Route path={'/user_Dashboard/login'} element={<Login/>} />
-        <Route path={'/user_Dashboard/sign_up'} element={<SignUp/>} />
       </Route>
     </Routes>
 
