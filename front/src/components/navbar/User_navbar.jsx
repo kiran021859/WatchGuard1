@@ -77,7 +77,7 @@ function User_navbar() {
 
   return (
     <>
-    <div className={`${navVisible ? 'w-[200px]':'w-[5%]'} md:w-[23%]   h-screen bg-[white] fixed`} id='nav_bar_button'>
+    <div className={`${navVisible ? 'w-[200px]':'w-[5%]'} md:w-[23%] lg:w-[23%] xl:w-[23%] h-screen bg-[white] fixed`} id='nav_bar_button'>
       <div className={`h-full w-full ${navVisible ? 'grid' : 'hidden'}`}>
 
         <div className=' flex justify-center items-center' id='nav_heading'>
