@@ -49,10 +49,6 @@ function Login() {
     <>
     <div>
     <div>Login</div>
-    <Link to='/sign_up'>Sign Up</Link><br></br>
-    <Link to='/login'>Login</Link><br></br>
-    <Link to='/'>Landing</Link><br></br>
-    <Link to='/user_Dashboard/communities'>Communities</Link>
     </div>
     <div>
       <form action='' onSubmit={login} className='max-w-[400px] m-auto'>

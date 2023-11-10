@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext} from 'react';
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import './user_navbar.css'
 import {FaUsers} from 'react-icons/fa'
 import {MdFeedback} from 'react-icons/md'
@@ -14,6 +14,7 @@ function User_navbar() {
   let [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [navbarSize, setNavbarSize] = useState(false)
   const {setUserInfo, userInfo} = useContext(UserContext)
+  const navigate = useNavigate()
   
     
 
@@ -65,12 +66,28 @@ function User_navbar() {
 
   },[])
 
-  function logout () {
-    fetch('http://localhost:4000/logout', {
+  async function logout () {
+    try {
+      const logoutResponse = await fetch('http://localhost:4000/logout', {
       credentials: 'include',
       method: 'POST'
     })
-    setUserInfo(null)
+    
+    setUserInfo(null);
+
+    if (logoutResponse) {
+      navigate('/login');
+    }
+    
+      
+    } catch (error) {
+      
+      console.error('Error during logour:', error);
+      alert("logout failed")
+    }
+
+    
+
   }
 
 
