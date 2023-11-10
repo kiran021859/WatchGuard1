@@ -16,6 +16,7 @@ export default {
         'nav':'2.5% 97.5%',
         'post':'15% 85% ', 
         'comment':'90% 10%',
+        'communities': '100%', 
       },
     },
     screens: {
