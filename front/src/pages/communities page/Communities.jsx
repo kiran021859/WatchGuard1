@@ -7,12 +7,7 @@ function Communities() {
     <>
     <div><Link to='/user_Dashboard/post'>post page</Link></div>
     <div id=' ' className='grid grid-col-communities grid-row-communities'>
-      <div id='' className=' h-full w-full ' ><Communities_block/></div>
-      <div id='' className=' h-full w-full' ><Communities_block/></div>
-      <div id='' className=' h-full w-full' ><Communities_block/></div>
-      <div id='' className=' h-full w-full' ><Communities_block/></div>
-      <div id='' className=' h-full w-full' ><Communities_block/></div>
-      <div id='' className=' h-full w-full' ><Communities_block/></div>
+      <div id='' className=' h-full w-full px-[5%] ' ><Communities_block/></div>
     </div>
     </>
   )
