@@ -15,7 +15,8 @@ const salt = bcrypt.genSaltSync(10);
 const secret = process.env.SECRET;
 //import user schema
 const User = require('./models/users');
-const Post = require('./models/post')
+const Post = require('./models/post');
+const Community = require('./models/communities');
 
 app.use(cors({credentials:true, origin:'http://localhost:5173'}));
 app.use(express.json());
@@ -101,6 +102,14 @@ app.post('/postData', uploadMiddleware.single('file'), async (req,res) => {
 app.get('/postData', async (req,res) => {
     const posts = await Post.find();
     res.json(posts);
+})
+
+app.get('/communityData', async (req, res) => {
+
+    
+    const community = await Community.find()
+    res.json(community)
+    //not creating communities schema because i will manulaty input the data
 })
 
 
