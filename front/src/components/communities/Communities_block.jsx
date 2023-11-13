@@ -4,6 +4,8 @@ import User from '../../assets/pictures/user_pic_1.png'
 
 function Communities_block({Community, people_joined}) {
 
+    
+
     // style={'box-shadow: 0px 1px 12px black; border-radius: 9999px'}
   return (
     <>
