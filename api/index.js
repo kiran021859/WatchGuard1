@@ -1,6 +1,6 @@
 require('dotenv').config();
 const express = require('express');
-const cors = require('cors');
+var cors = require('cors');
 const app = express();
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
@@ -10,7 +10,7 @@ const cookieParser = require('cookie-parser');
 const fs = require('fs')
 const multer  = require('multer');
 const uploadMiddleware = multer({ dest: 'uploads/' })
-const PORT = process.env.PORT || 4000
+const port = process.env.PORT || 4000
 const salt = bcrypt.genSaltSync(10);
 const secret = process.env.SECRET;
 //import user schema
@@ -18,41 +18,17 @@ const User = require('./models/users');
 const Post = require('./models/post');
 const Community = require('./models/communities');
 
-const allowedOrigins = [
-    'http://localhost:5173',
-    'https://watchguard-younglings.netlify.app',
-    // Add more URLs as needed
-  ];
-  
-  const corsOptions = {
-    origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
-    credentials: true,
-  };
-  
-  app.use(cors(corsOptions));
-
+app.use(cors({credentials:true, origin:'http://localhost:5173'}));
 app.use(express.json());
 app.use(cookieParser())
 
 
-// app.options('/register', (req, res) => {
-//   res.set('Access-Control-Allow-Origin', allowedOrigins.join(','));
-//   res.set('Access-Control-Allow-Methods', 'POST');
-//   res.set('Access-Control-Allow-Headers', 'Content-Type');
-//   res.status(204).end();
-// });
+
 
 
 app.post('/register', async (req, res) => {
     
     const {username, password} = req.body;
-    
     try {
         const userDoc = await User.create({
             username,
@@ -101,8 +77,6 @@ app.post('/logout', (req, res) => {
 
 app.post('/postData', uploadMiddleware.single('file'), async (req,res) => {
     const {originalname, path} = req.file;
-
-    console.log(req.file);
     const parts = originalname.split('.');
     const ext = parts[parts.length - 1];
     const newPath = path+'.'+ext;
@@ -143,7 +117,7 @@ app.get('/communityData', async (req, res) => {
 const start = async ()=>{
     try {
         await connectDB(process.env.MONGO_URI);
-        app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`))
+        app.listen(port, () => console.log(`Example app listening on port ${port}!`))
     } catch (error) {
         console.log(error);
     }
