@@ -18,12 +18,12 @@ const User = require('./models/users');
 const Post = require('./models/post');
 const Community = require('./models/communities');
 
-app.use(cors({credentials:true, origin:'http://localhost:5173'}));
+app.use(cors({credentials:true, origin:['http://localhost:5173', 'https://watchguard-younglings.netlify.app']},));
 app.use(express.json());
 app.use(cookieParser())
 
 
-
+app.options('*', cors());
 
 
 app.post('/register', async (req, res) => {
