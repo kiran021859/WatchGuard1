@@ -18,7 +18,25 @@ const User = require('./models/users');
 const Post = require('./models/post');
 const Community = require('./models/communities');
 
-app.use(cors({credentials:true, origin:['http://localhost:5173', 'https://watchguard-younglings.netlify.app']},));
+const allowedOrigins = [
+    'http://localhost:5173',
+    'https://watchguard-younglings.netlify.app',
+    // Add more URLs as needed
+  ];
+
+  app.use(
+    cors({
+      credentials: true,
+      origin: (origin, callback) => {
+        if (!origin || allowedOrigins.includes(origin)) {
+          callback(null, true);
+        } else {
+          callback(new Error('Not allowed by CORS'));
+        }
+      },
+    })
+  );
+  
 app.use(express.json());
 app.use(cookieParser())
 
