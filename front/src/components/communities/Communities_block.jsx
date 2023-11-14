@@ -1,9 +1,13 @@
 import React from 'react'
 import Pic from '../../assets/pictures/Sorvete_oreo.png'
 import User from '../../assets/pictures/user_pic_1.png' 
+import {useNavigate} from 'react-router-dom'
 
 function Communities_block({Community, people_joined}) {
-
+        const navigate = useNavigate()
+    const goToPage = () => {
+        navigate('/user_Dashboard/post')
+    }
     
 
     // style={'box-shadow: 0px 1px 12px black; border-radius: 9999px'}
@@ -15,7 +19,7 @@ function Communities_block({Community, people_joined}) {
         </div>
         <div id='' className='flex flex-col justify-center ml-[10%]'>
             <div id='' className=''>
-                <h1 className='text-[black] text-[22px] font-[Poppins] font-[400]'>{Community}</h1>
+                <h1 onClick={goToPage} className='text-[black] text-[22px] font-[Poppins] font-[400]'>{Community}</h1>
             </div>
             <div id='' className=''>
                 <h2 className='text-gray-700     text-[15px] font-[Poppins] font-[400]'><span>{people_joined}</span> | people in the area </h2>
