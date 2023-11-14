@@ -36,12 +36,17 @@ const allowedOrigins = [
       },
     })
   );
-  
+
 app.use(express.json());
 app.use(cookieParser())
 
 
-app.options('*', cors());
+app.options('/register', (req, res) => {
+  res.set('Access-Control-Allow-Origin', allowedOrigins.join(','));
+  res.set('Access-Control-Allow-Methods', 'POST');
+  res.set('Access-Control-Allow-Headers', 'Content-Type');
+  res.status(204).end();
+});
 
 
 app.post('/register', async (req, res) => {
