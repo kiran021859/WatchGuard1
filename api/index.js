@@ -1,6 +1,6 @@
 require('dotenv').config();
 const express = require('express');
-var cors = require('cors');
+const cors = require('cors');
 const app = express();
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
@@ -23,30 +23,30 @@ const allowedOrigins = [
     'https://watchguard-younglings.netlify.app',
     // Add more URLs as needed
   ];
-
-  app.use(
-    cors({
-      credentials: true,
-      origin: (origin, callback) => {
-        if (!origin || allowedOrigins.includes(origin)) {
-          callback(null, true);
-        } else {
-          callback(new Error('Not allowed by CORS'));
-        }
-      },
-    })
-  );
+  
+  const corsOptions = {
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    credentials: true,
+  };
+  
+  app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use(cookieParser())
 
 
-app.options('/register', (req, res) => {
-  res.set('Access-Control-Allow-Origin', allowedOrigins.join(','));
-  res.set('Access-Control-Allow-Methods', 'POST');
-  res.set('Access-Control-Allow-Headers', 'Content-Type');
-  res.status(204).end();
-});
+// app.options('/register', (req, res) => {
+//   res.set('Access-Control-Allow-Origin', allowedOrigins.join(','));
+//   res.set('Access-Control-Allow-Methods', 'POST');
+//   res.set('Access-Control-Allow-Headers', 'Content-Type');
+//   res.status(204).end();
+// });
 
 
 app.post('/register', async (req, res) => {
