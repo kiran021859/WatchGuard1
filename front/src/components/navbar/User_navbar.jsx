@@ -13,7 +13,7 @@ function User_navbar() {
   const [navVisible, setNavVisible] = useState(true);
   let [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [navbarSize, setNavbarSize] = useState(false)
-  const {setUserInfo, userInfo} = useContext(UserContext)
+  const {setUserInfo, userInfo, http} = useContext(UserContext)
   const navigate = useNavigate()
   
     
@@ -56,7 +56,7 @@ function User_navbar() {
    }
 
    useEffect(() => {
-    fetch('http://localhost:4000/profile', {
+    fetch(`${http}/profile`, {
       credentials: 'include'
     }).then(response => {
       response.json().then(userInfo => {
@@ -68,7 +68,7 @@ function User_navbar() {
 
   async function logout () {
     try {
-      const logoutResponse = await fetch('http://localhost:4000/logout', {
+      const logoutResponse = await fetch(`${http}/logout`, {
       credentials: 'include',
       method: 'POST'
     })

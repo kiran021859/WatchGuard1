@@ -1,15 +1,16 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useContext} from 'react'
 import Post from '../../components/post/Post'
 import {Link, Navigate} from 'react-router-dom'
-
+import { UserContext } from '../../context/userContext';
 
 
 
 function post_page( ) {
   const [posts, setPosts] = useState([]);
+  const {http} = useContext(UserContext);
 
  useEffect(() => {
-  fetch('http://localhost:4000/postData', {
+  fetch(`${http}/postData`, {
     method:'GET',
 
   }).then(response => {

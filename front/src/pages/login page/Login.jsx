@@ -8,7 +8,7 @@ function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
-  const {setUserInfo} = useContext(UserContext);
+  const {setUserInfo, http} = useContext(UserContext);
   //const [redirect, setRedirect] = useState(false);
   const navigate = useNavigate();
 
@@ -16,12 +16,13 @@ function Login() {
     ev.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:4000/login', {
+      const response = await fetch(`${http}/login`, {
         method: 'POST',
         body: JSON.stringify({ username, password }),
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include'
       })
+
 
       if (response.ok) {    
 

@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import './post.css';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { Navigate } from 'react-router-dom';
+import { UserContext } from '../../context/userContext';
 
 function Post_functionality() {
   const  modules = {
@@ -29,6 +30,7 @@ function Post_functionality() {
   const [postFiles, setPostFiles] = useState('')
   const [content, setContent] = useState('')
   const [redirect, setRedirect] = useState(false)
+  const {http} = useContext(UserContext);
 
 
   async function createNewPost (ev) {
@@ -38,7 +40,7 @@ function Post_functionality() {
     data.set('content', content);
     data.set('file', postFiles[0] )
     ev.preventDefault();
-    const response = await fetch('http://localhost:4000/postData', {
+    const response = await fetch(`${http}/postData`, {
       method: 'POST',
       body: data,
       

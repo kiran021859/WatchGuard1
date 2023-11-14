@@ -7,7 +7,7 @@ import { UserContext } from "../../context/userContext";
 
 function Header() {
     const [currentDateTime, setCurrentDateTime] = useState(new Date());
-    const {userInfo} = useContext(UserContext)
+    const {userInfo, http} = useContext(UserContext)
 
     useEffect(() => {
       const intervalId = setInterval(() => {

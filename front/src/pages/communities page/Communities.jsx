@@ -1,13 +1,15 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useContext} from 'react'
 import {Link} from 'react-router-dom'
 import Communities_block from '../../components/communities/Communities_block'
+import { UserContext } from '../../context/userContext';
 
 function Communities() {
 
   const [communities, setCommunities] = useState([]);
+  const {http} = useContext(UserContext);
 
   useEffect(() => {
-   fetch('http://localhost:4000/communityData', {
+   fetch(`${http}/communityData`, {
      method:'GET',
  
    }).then(response => {

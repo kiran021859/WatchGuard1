@@ -1,18 +1,20 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import './SignUp_style.css'
+import { UserContext } from '../../context/userContext';
 
 function SignUp() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null); // State variable for error handling
   const navigate = useNavigate();
+  const {http} = useContext(UserContext);
 
   async function signUp(ev) {
     ev.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:4000/register', {
+      const response = await fetch(`${http}/register`, {
         method: 'POST',
         body: JSON.stringify({ username, password }),
         headers: { 'Content-Type': 'application/json' },

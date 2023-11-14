@@ -10,7 +10,7 @@ const cookieParser = require('cookie-parser');
 const fs = require('fs')
 const multer  = require('multer');
 const uploadMiddleware = multer({ dest: 'uploads/' })
-const port = process.env.PORT || 4000
+const PORT = process.env.PORT || 4000
 const salt = bcrypt.genSaltSync(10);
 const secret = process.env.SECRET;
 //import user schema
@@ -119,7 +119,7 @@ app.get('/communityData', async (req, res) => {
 const start = async ()=>{
     try {
         await connectDB(process.env.MONGO_URI);
-        app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+        app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`))
     } catch (error) {
         console.log(error);
     }
