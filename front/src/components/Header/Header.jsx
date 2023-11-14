@@ -22,13 +22,14 @@ function Header() {
     const year = currentDateTime.getFullYear();
     
     const username = userInfo?.username
+    
 
   return (
     <div className="flex w-full justify-between">
     <div className="pt-[30px]">
     {username && (
       <>
-      <Link to="/user_Dashboard/create_post">Make Post</Link>
+      <h1>You Are Loged In</h1>
       </>
     )}
     {!username && (
@@ -36,7 +37,7 @@ function Header() {
       <h1>Please Login</h1>
       </>
     )}
-    <h1 className="text-[30px]">Welcome back, <span>User Name</span>!</h1>
+    <h1 className="text-[30px]">Welcome back, <span>{username}</span>!</h1>
     <h2 className="text-[17px]">Checkout the latest update in your neighbourhood</h2>
     </div>
 
