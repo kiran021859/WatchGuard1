@@ -10,7 +10,7 @@ const cookieParser = require('cookie-parser');
 const fs = require('fs')
 const multer  = require('multer');
 const uploadMiddleware = multer({ dest: 'uploads/' })
-const port = process.env.PORT || 4000
+const port = process.env.PORT || 3000
 const salt = bcrypt.genSaltSync(10);
 const secret = process.env.SECRET;
 //import user schema
