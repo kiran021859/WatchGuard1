@@ -45,9 +45,21 @@ function Post({title, summary, cover, content, createdAt}) {
     // {formatISO9075(new Date(createdAt))}
    var newCreatedAt = parseInt(createdAt)
 
+
+
+   const removeTags = (input) => {
+    return input.replace(/<\/?[^>]+(>|$)/g, "");
+  };
+
+  const postData = content;
+
+  const processedData = removeTags(postData);
+
+
+
   return (
     <>
-    <div id='post_block' className=' bg-[white] border-2 border-slate-950 rounded-lg mt-[30px] mb-[30px]'>
+    <div id='post_block' className=' bg-[white] rounded-lg mt-[30px] mb-[30px]'>
 
       <div id='profile_div1' className='w-full h-full'>
         <div id='profile_pic' className=' w-[80px] h-[80px] rounded-[100px] bg-center bg-cover' style={{backgroundImage: `url(${User})`}}></div>
@@ -65,7 +77,7 @@ function Post({title, summary, cover, content, createdAt}) {
         <h1 id='post_heading' className='' >{title}</h1>
         <div id='post_text_div'>
         <p id='post_text' className='' >
-           {content}
+           {processedData}
         </p>
         </div>
 
