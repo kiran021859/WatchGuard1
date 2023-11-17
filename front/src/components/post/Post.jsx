@@ -3,7 +3,7 @@ import User from '../../assets/pictures/user_pic_1.png'
 import './Post.css'
 import { format, formatISO9075 } from 'date-fns'
 
-function Post({title, summary, cover, content, createdAt}) {
+function Post({post}) {
 
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
 
@@ -40,10 +40,8 @@ function Post({title, summary, cover, content, createdAt}) {
         window.removeEventListener('resize', handleResize);
       };
     }, []);
-
-
-    // {formatISO9075(new Date(createdAt))}
-   var newCreatedAt = parseInt(createdAt)
+    // const createdTime = posts.createdAt || new Date();
+    // var newCreatedAt = parseInt(createdTime instanceof Date ? createdTime.getTime() : createdTime);
 
 
 
@@ -51,7 +49,7 @@ function Post({title, summary, cover, content, createdAt}) {
     return input.replace(/<\/?[^>]+(>|$)/g, "");
   };
 
-  const postData = content;
+  const postData = post.content || '';
 
   const processedData = removeTags(postData);
 
@@ -74,7 +72,7 @@ function Post({title, summary, cover, content, createdAt}) {
         <div id='post_type' className='flex justify-center items-center' ><h5>Safety</h5></div>
         </div>
 
-        <h1 id='post_heading' className='' >{title}</h1>
+        <h1 id='post_heading' className='' >{post.title}</h1>
         <div id='post_text_div'>
         <p id='post_text' className='' >
            {processedData}

@@ -13,8 +13,8 @@ function post_page( ) {
   fetch(`${http}/postData`, {
     method:'GET',
 
-  }).then(response => {
-    response.json().then(post => {
+  }).then(response => {response.json()
+    .then(post => {
       setPosts(post);
     })
   })
@@ -32,9 +32,9 @@ function post_page( ) {
             </button>
           </Link>
           
-            {posts.length > 0 && posts.map(posts => (
-              <Post {...posts}/>
-            ))}
+          {posts.length > 0 && posts.map((post, index) => (
+            <Post key={post.id || index} post={post} />
+          ))}
           
           
         </div>
