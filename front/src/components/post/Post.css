@@ -8,6 +8,12 @@
 
 }
 
+@media (min-width: 1535px) {
+    #post_block{
+        width: 80%;
+    }
+}
+
 #profile_div1{
     display: flex;
     justify-content: center;
