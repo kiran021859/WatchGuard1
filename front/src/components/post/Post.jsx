@@ -47,13 +47,13 @@ function Post({title, summary, cover, content, createdAt}) {
 
 
 
-   const removeTags = (input) => {
-    return input.replace(/<\/?[^>]+(>|$)/g, "");
-  };
+  //  const removeTags = (input) => {
+  //   return input.replace(/<\/?[^>]+(>|$)/g, "");
+  // };
 
-  const postData = content;
+  // const postData = content;
 
-  const processedData = removeTags(postData);
+  // const processedData = removeTags(postData);
 
 
 
@@ -77,7 +77,7 @@ function Post({title, summary, cover, content, createdAt}) {
         <h1 id='post_heading' className='' >{title}</h1>
         <div id='post_text_div'>
         <p id='post_text' className='' >
-           {processedData}
+           {content}
         </p>
         </div>
 
