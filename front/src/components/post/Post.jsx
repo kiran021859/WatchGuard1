@@ -57,7 +57,7 @@ function Post({post}) {
 
   return (
     <>
-    <div id='post_block' className=' bg-[white] rounded-lg mt-[30px] mb-[30px]'>
+    <div id='post_block' className=' bg-[white] border-2 border-slate-950 rounded-lg mt-[30px] mb-[30px]'>
 
       <div id='profile_div1' className='w-full h-full'>
         <div id='profile_pic' className=' w-[80px] h-[80px] rounded-[100px] bg-center bg-cover' style={{backgroundImage: `url(${User})`}}></div>
@@ -75,7 +75,7 @@ function Post({post}) {
         <h1 id='post_heading' className='' >{post.title}</h1>
         <div id='post_text_div'>
         <p id='post_text' className='' >
-           {processedData}
+           {content}
         </p>
         </div>
 
