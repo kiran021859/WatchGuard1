@@ -3,7 +3,7 @@ import User from '../../assets/pictures/user_pic_1.png'
 import './Post.css'
 import { format, formatISO9075 } from 'date-fns'
 
-function Post({post}) {
+function Post({title, summary, cover, content, createdAt}) {
 
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
 
@@ -40,8 +40,10 @@ function Post({post}) {
         window.removeEventListener('resize', handleResize);
       };
     }, []);
-    // const createdTime = posts.createdAt || new Date();
-    // var newCreatedAt = parseInt(createdTime instanceof Date ? createdTime.getTime() : createdTime);
+
+
+    // {formatISO9075(new Date(createdAt))}
+   var newCreatedAt = parseInt(createdAt)
 
 
 
@@ -49,7 +51,7 @@ function Post({post}) {
     return input.replace(/<\/?[^>]+(>|$)/g, "");
   };
 
-  const postData = post.content || '';
+  const postData = content;
 
   const processedData = removeTags(postData);
 
@@ -57,7 +59,7 @@ function Post({post}) {
 
   return (
     <>
-    <div id='post_block' className=' bg-[white] border-2 border-slate-950 rounded-lg mt-[30px] mb-[30px]'>
+    <div id='post_block' className=' bg-[white] rounded-lg mt-[30px] mb-[30px]'>
 
       <div id='profile_div1' className='w-full h-full'>
         <div id='profile_pic' className=' w-[80px] h-[80px] rounded-[100px] bg-center bg-cover' style={{backgroundImage: `url(${User})`}}></div>
@@ -72,10 +74,10 @@ function Post({post}) {
         <div id='post_type' className='flex justify-center items-center' ><h5>Safety</h5></div>
         </div>
 
-        <h1 id='post_heading' className='' >{post.title}</h1>
+        <h1 id='post_heading' className='' >{title}</h1>
         <div id='post_text_div'>
         <p id='post_text' className='' >
-           {content}
+           {processedData}
         </p>
         </div>
 
