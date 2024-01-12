@@ -113,28 +113,28 @@ function User_navbar() {
             <div className='flex items-center justify-center' id='nav_saftey'>
               <div id='nav_icon_route'>
               <div className='flex justify-center items-center rounded-lg' id='nav_icon'><GiSpartanHelmet/></div>
-              <h1><Link to='/login'>Safety Tips</Link></h1>
+              <h1><Link to='/user_Dashboard/safety_tip'>Safety Tips</Link></h1>
               </div>
             </div>
 
             <div className='flex items-center justify-center' id='nav_feedback'>
               <div id='nav_icon_route'>
               <div className='flex justify-center items-center rounded-lg' id='nav_icon'><MdFeedback/></div>
-              <h1><Link to='/login'>Feedback</Link></h1>
+              <h1><Link to='/user_Dashboard/feedback'>Feedback</Link></h1>
               </div>
             </div>
 
             <div className='flex items-center justify-center' id='nav_privacy'>
               <div id='nav_icon_route'>
               <div className='flex justify-center items-center rounded-lg' id='nav_icon'><MdPrivacyTip/></div>
-              <h1><Link to='/login'>Privacy</Link></h1>
+              <h1><Link to='/user_Dashboard/privacy'>Privacy</Link></h1>
               </div>
             </div>
 
             <div className='flex items-center justify-center' id='nav_help'>
               <div id='nav_icon_route'>
               <div className='flex justify-center items-center rounded-lg' id='nav_icon'><IoIosHelpCircle/></div>
-              <h1><Link to='/login'>Help</Link></h1>
+              <h1><Link to='/user_Dashboard/help'>Help</Link></h1>
               </div>
             </div>
           </div>
