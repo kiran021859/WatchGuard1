@@ -2,7 +2,11 @@ import React from 'react'
 
 function Feedback() {
   return (
-    <div>Feedback</div>
+    <>
+    <h1></h1>
+    <p></p>
+    
+    </>
   )
 }
 
