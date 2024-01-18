@@ -34,22 +34,36 @@ function Post_functionality() {
 
 
   async function createNewPost (ev) {
-    const data = new FormData();
-    data.set('title', postTitle);
-    data.set('summary', postSummary);
-    data.set('content', content);
-    //data.set('file', postFiles[0] )
-    ev.preventDefault();
-    const response = await fetch(`${http}/postData`, {
-      method: 'POST',
-      body: data,
+    // const data = new FormData();
+    // data.set('title', postTitle);
+    // data.set('summary', postSummary);
+    // data.set('content', content);
+    // //data.set('file', postFiles[0] )
+     ev.preventDefault();
+    // const response = await fetch(`${http}/postData`, {
+    //   method: 'POST',
+    //   body: data,
       
+    // })
+    
+      console.log(postTitle, postSummary, content);
+      const outContent = content.replace(/<\/?p>/g, '');
+      const response = await fetch(`${http}/postData`, {
+      method: 'POST', 
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        Title: postTitle, 
+        Type: postSummary,
+        Content: outContent  
+      }), 
     })
+
     if(response.ok) {
       setRedirect(true)
     }
 
-    
   }
 
   if(redirect) {
