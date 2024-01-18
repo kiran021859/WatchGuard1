@@ -38,7 +38,7 @@ function Post_functionality() {
     data.set('title', postTitle);
     data.set('summary', postSummary);
     data.set('content', content);
-    data.set('file', postFiles[0] )
+    //data.set('file', postFiles[0] )
     ev.preventDefault();
     const response = await fetch(`${http}/postData`, {
       method: 'POST',
