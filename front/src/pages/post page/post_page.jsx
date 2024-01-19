@@ -13,9 +13,11 @@ function post_page( ) {
   fetch(`${http}/postData`, {
     method:'GET',
 
-  }).then(response => {
-    response.json().then(post => {
-      setPosts(post);
+  })
+  .then(response => {
+    response.json()
+  .then(post => {
+    setPosts(post);
     })
   })
  }, [])

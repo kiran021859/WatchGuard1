@@ -3,7 +3,7 @@ import User from '../../assets/pictures/user_pic_1.png'
 import './Post.css'
 import { format, formatISO9075 } from 'date-fns'
 
-function Post({title, summary, cover, content, createdAt}) {
+function Post({Title, summary, cover, Content, createdAt}) {
 
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
 
@@ -69,15 +69,15 @@ function Post({title, summary, cover, content, createdAt}) {
 
         <h2 id='user_name' className='' >User Name</h2>
 
-        <h3 id='posted_time' className='' >posted|<span></span></h3>
+        <h3 id='posted_time' className='' >posted | <span>{createdAt}</span></h3>
         <div id='post_type_div' >
         <div id='post_type' className='flex justify-center items-center' ><h5>Safety</h5></div>
         </div>
 
-        <h1 id='post_heading' className='' >{title}</h1>
+        <h1 id='post_heading' className='' >{Title}</h1>
         <div id='post_text_div'>
         <p id='post_text' className='' >
-           {content}
+           {Content}
         </p>
         </div>
 
