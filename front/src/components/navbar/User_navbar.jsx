@@ -106,7 +106,7 @@ function User_navbar() {
             <div className='flex items-center justify-center' id='nav_communities'>
               <div id='nav_icon_route'>
               <div className='bg-[#54DDFC] flex justify-center items-center rounded-lg' id='nav_icon'><FaUsers/></div>
-              <h1><Link to='/user_Dashboard/post'>Communities</Link></h1>
+              <h1><Link to='/user_Dashboard/communities'>Communities</Link></h1>
               </div>
             </div>
 
