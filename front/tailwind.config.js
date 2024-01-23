@@ -19,7 +19,8 @@ export default {
         'communities': '100%',
         'insideCommunities' : '10% 50% 40%',
         'safetyBlocks' : '50% 50%',
-        'privacyBlocks' : '30% 30% 30%'  
+        'privacyBlocks' : '30% 30% 30%',
+        'comment':'15% 85%',  
       },
       gridTemplateRows: {
         'communities': 'repeat(auto-fill, 500px)',

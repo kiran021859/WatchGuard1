@@ -3,11 +3,13 @@ import User from '../../assets/pictures/user_pic_1.png' ;
 import './Post.css';
 import { format, formatISO9075 } from 'date-fns';
 import { UserContext } from '../../context/userContext';
+import CommentBlock from '../../components/commentBlock/CommentBlock'
 
 function Post({Title, summary, cover, Content, createdAt}) {
 
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
   const [comment, setComment] = useState('');
+  const [getComments, setGetComments] = useState([]);
   const {http} = useContext(UserContext);
 
     useEffect(() => {
@@ -17,6 +19,21 @@ function Post({Title, summary, cover, Content, createdAt}) {
   
       return () => clearInterval(intervalId); // Cleanup the interval when the component unmounts
     }, []);
+
+
+    //get comment data
+    useEffect(() => {
+      fetch(`${http}/comments`, {
+        method:'GET',
+    
+      })
+      .then(response => {
+        response.json()
+      .then(comment => {
+        setGetComments(comment);
+        })
+      })
+     }, [])
 
     const month = String(currentDateTime.getMonth());
     const day = String(currentDateTime.getDate());
@@ -122,6 +139,13 @@ function Post({Title, summary, cover, Content, createdAt}) {
             <button id='post_button' className='' onClick={postComment}>
               Send
             </button>
+
+            <div>
+              
+              {getComments.length > 0 && getComments.map(comments => (
+            <CommentBlock {...comments}/>
+          ))}
+            </div>
 
           </div>
         </div>
