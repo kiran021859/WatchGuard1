@@ -59,7 +59,7 @@ function Post({Title, summary, cover, Content, createdAt}) {
   // const processedData = removeTags(postData);
 
    async function postComment () {
-      const response = await fetch(`${http}/postComment`, {
+      const response = await fetch(`${http}/comments`, {
         method: 'POST', 
         headers: {
           'Content-Type': 'application/json',
