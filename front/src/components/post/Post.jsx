@@ -1,11 +1,14 @@
-import React, {useState, useEffect} from 'react'
-import User from '../../assets/pictures/user_pic_1.png' 
-import './Post.css'
-import { format, formatISO9075 } from 'date-fns'
+import React, {useState, useEffect, useContext} from 'react';
+import User from '../../assets/pictures/user_pic_1.png' ;
+import './Post.css';
+import { format, formatISO9075 } from 'date-fns';
+import { UserContext } from '../../context/userContext';
 
 function Post({Title, summary, cover, Content, createdAt}) {
 
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
+  const [comment, setComment] = useState('');
+  const {http} = useContext(UserContext);
 
     useEffect(() => {
       const intervalId = setInterval(() => {
@@ -55,7 +58,22 @@ function Post({Title, summary, cover, Content, createdAt}) {
 
   // const processedData = removeTags(postData);
 
+   async function postComment () {
+      const response = await fetch(`${http}/postComment`, {
+        method: 'POST', 
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          Comment: comment, 
 
+        }), 
+      })
+  
+      if(response.ok) {
+        setRedirect(true)
+      }
+    }
 
   return (
     <>
@@ -90,10 +108,18 @@ function Post({Title, summary, cover, Content, createdAt}) {
           <div id='form_div' className=' mt-[10px] mb-[40px] pr-[130px] gap-6 '>
 
             <form id='' className='' >
-              <input id='comment_input' className='' ></input>
+              <input
+              type='Comment' 
+              placeholder='Comment' 
+              value={comment}
+              onChange={ev => setComment(ev.target.value)}
+              id='comment_input' 
+              className='' >
+
+              </input>
             </form>
 
-            <button id='post_button' className='' >
+            <button id='post_button' className='' onClick={postComment}>
               Send
             </button>
 
