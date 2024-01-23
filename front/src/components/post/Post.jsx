@@ -5,7 +5,7 @@ import { format, formatISO9075 } from 'date-fns';
 import { UserContext } from '../../context/userContext';
 import CommentBlock from '../../components/commentBlock/CommentBlock'
 
-function Post({Title, summary, cover, Content, createdAt}) {
+function Post({_id, Title, summary, cover, Content, createdAt}) {
 
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
   const [comment, setComment] = useState('');
@@ -23,7 +23,7 @@ function Post({Title, summary, cover, Content, createdAt}) {
 
     //get comment data
     useEffect(() => {
-      fetch(`${http}/comments`, {
+      fetch(`${http}/comments?postId=${_id}`, {
         method:'GET',
     
       })
@@ -83,15 +83,18 @@ function Post({Title, summary, cover, Content, createdAt}) {
         },
         body: JSON.stringify({
           Comment: comment, 
+          PostId: _id,
 
         }), 
       })
   
       if(response.ok) {
-        setRedirect(true)
+        console.log("comment post successfull");
       }
     }
 
+
+    
   return (
     <>
     <div id='post_block' className=' bg-[white] rounded-lg mt-[30px] mb-[30px]'>
@@ -104,7 +107,7 @@ function Post({Title, summary, cover, Content, createdAt}) {
 
         <h2 id='user_name' className='' >User Name</h2>
 
-        <h3 id='posted_time' className='' >posted | <span>{createdAt}</span></h3>
+        <h3 id='posted_time' className=''>posted | <span>{format(new Date(createdAt), 'yyyy-MM-dd HH:mm')}</span></h3>
         <div id='post_type_div' >
         <div id='post_type' className='flex justify-center items-center' ><h5>Safety</h5></div>
         </div>

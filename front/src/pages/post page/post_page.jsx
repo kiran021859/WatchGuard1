@@ -20,6 +20,7 @@ function post_page( ) {
     setPosts(post);
     })
   })
+  
  }, [])
 
  
