@@ -11,6 +11,7 @@ function Post({_id, Title, summary, cover, Content, createdAt}) {
   const [comment, setComment] = useState('');
   const [getComments, setGetComments] = useState([]);
   const {http} = useContext(UserContext);
+  const [httpRequestSuccess, setHttpRequestSuccess] = useState(false);
 
     useEffect(() => {
       const intervalId = setInterval(() => {
@@ -34,6 +35,23 @@ function Post({_id, Title, summary, cover, Content, createdAt}) {
         })
       })
      }, [])
+
+// get comment data after comment is made
+     useEffect(() => {
+      fetch(`${http}/comments?postId=${_id}`, {
+        method:'GET',
+    
+      })
+      .then(response => {
+        response.json()
+      .then(comment => {
+        setGetComments(comment);
+        })
+      })
+
+      console.log("get comment data after comment is made");
+      setHttpRequestSuccess(false)
+    }, [httpRequestSuccess]);
 
     const month = String(currentDateTime.getMonth());
     const day = String(currentDateTime.getDate());
@@ -75,7 +93,8 @@ function Post({_id, Title, summary, cover, Content, createdAt}) {
 
   // const processedData = removeTags(postData);
 
-   async function postComment () {
+   async function postComment (ev) {
+    ev.preventDefault()
       const response = await fetch(`${http}/comments`, {
         method: 'POST', 
         headers: {
@@ -89,7 +108,9 @@ function Post({_id, Title, summary, cover, Content, createdAt}) {
       })
   
       if(response.ok) {
+
         console.log("comment post successfull");
+        setHttpRequestSuccess(true); // Trigger re-render
       }
     }
 
@@ -127,7 +148,7 @@ function Post({_id, Title, summary, cover, Content, createdAt}) {
         <div id='comments_div'>
           <div id='form_div' className=' mt-[10px] mb-[40px] pr-[130px] gap-6 '>
 
-            <form id='' className='' >
+            <form id='form' className='' >
               <input
               type='Comment' 
               placeholder='Comment' 
@@ -137,11 +158,13 @@ function Post({_id, Title, summary, cover, Content, createdAt}) {
               className='' >
 
               </input>
-            </form>
 
-            <button id='post_button' className='' onClick={postComment}>
+              <button id='post_button' className='' onClick={postComment}>
               Send
             </button>
+            </form>
+
+            
 
             <div>
               
