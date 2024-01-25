@@ -1,8 +1,9 @@
 import React, { useState, useEffect, } from 'react';
-import './navbar.css';
+//import './navbar.css';
 import menu from './menu.jpg';
-import open_menu from './navbar1.js';
+//import open_menu from './navbar1.js';
 import {Link} from 'react-router-dom'
+import landing from '../../assets/pictures/landing_pic.png'
 
 
 
@@ -10,47 +11,31 @@ import {Link} from 'react-router-dom'
 function Navbar() {
 
 
-    const [headerId, setHeaderId] = useState('landing_header');
-  
-  const handleScroll = () => {
-    if (window.scrollY > 100) {
-      setHeaderId('landing_header1');
-    } else {
-      setHeaderId('landing_header');
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-  //{`aboutMeContent${myAboutIsVisible ? "-active":""}`}
-
 
 
 
   return (
     <>
-    <nav>
-          <div id={headerId} className='w-screen'>
-            <div className="logo">
-              <a href="#" className="logo">Kir<span>a</span>n.</a>
-            </div>
-
-            
-              <div className="navlist">
-                    <Link to='/sign_up' onClick={open_menu}><div id='link'>Sign Up</div></Link>
-                    <Link to='/login' onClick={open_menu}><div id='link'>Login</div></Link>
-              </div>
-            
-
-            <div className="" id='nav-icon' onClick={open_menu}>
-              <img src={menu} alt="Nav_bar"/>
-            </div>
+  
+      <div id='' className='bg-[yellow] h-screen grid grid-cols-navbar'>
+        <nav>
+          <div id='' className="">
+            <Link to='/sign_up'><div id='link'>Sign Up</div></Link>
+            <Link to='/login'><div id='link'>Login</div></Link>
           </div>
-        </nav> 
+        </nav>
+
+        <div id='' className='bg-[blue] flex justify-center'>
+          <div id='' className='w-[100%] h-[100%] bg-bottom bg-cover bg-no-repeat ' style={{backgroundImage: `url(${landing})`}}></div>
+        </div>
+
+        
+          
+        
+
+        
+      </div>
+         
     </>
   )
 }

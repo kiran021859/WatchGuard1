@@ -20,7 +20,8 @@ export default {
         'insideCommunities' : '10% 50% 40%',
         'safetyBlocks' : '50% 50%',
         'privacyBlocks' : '30% 30% 30%',
-        'comment':'15% 85%',  
+        'comment':'15% 85%', 
+        'navbar': '30% 70%' 
       },
       gridTemplateRows: {
         'communities': 'repeat(auto-fill, 500px)',
