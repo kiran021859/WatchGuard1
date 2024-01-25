@@ -5,7 +5,7 @@ import { format, formatISO9075 } from 'date-fns';
 import { UserContext } from '../../context/userContext';
 import CommentBlock from '../../components/commentBlock/CommentBlock'
 
-function Post({_id, Title, summary, cover, Content, createdAt}) {
+function Post({_id, Title, Type, Content, createdAt}) {
 
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
   const [comment, setComment] = useState('');
@@ -34,6 +34,10 @@ function Post({_id, Title, summary, cover, Content, createdAt}) {
         setGetComments(comment);
         })
       })
+
+      
+      
+      
      }, [])
 
 // get comment data after comment is made
@@ -105,12 +109,15 @@ function Post({_id, Title, summary, cover, Content, createdAt}) {
           PostId: _id,
 
         }), 
+
+        
       })
   
       if(response.ok) {
 
         console.log("comment post successfull");
         setHttpRequestSuccess(true); // Trigger re-render
+        setComment('')
       }
     }
 
@@ -130,7 +137,7 @@ function Post({_id, Title, summary, cover, Content, createdAt}) {
 
         <h3 id='posted_time' className=''>posted | <span>{format(new Date(createdAt), 'yyyy-MM-dd HH:mm')}</span></h3>
         <div id='post_type_div' >
-        <div id='post_type' className='flex justify-center items-center' ><h5>Safety</h5></div>
+        <div id='post_type' className='flex justify-center items-center' ><h5>{Type}</h5></div>
         </div>
 
         <h1 id='post_heading' className='' >{Title}</h1>
@@ -145,13 +152,18 @@ function Post({_id, Title, summary, cover, Content, createdAt}) {
           <div id='' className='' >#saveus</div>
         </div>
 
+        <div id='' className='h-[50px] w-[90%] flex items-end border-b-2 indigo-50'>
+          <h2 className='text-[grey]'>Comments</h2>
+
+        </div>
+
         <div id='comments_div'>
           <div id='form_div' className=' mt-[10px] mb-[40px] pr-[130px] gap-6 '>
 
             <form id='form' className='' >
               <input
               type='Comment' 
-              placeholder='Comment' 
+              placeholder='Create A Comment' 
               value={comment}
               onChange={ev => setComment(ev.target.value)}
               id='comment_input' 
@@ -166,7 +178,7 @@ function Post({_id, Title, summary, cover, Content, createdAt}) {
 
             
 
-            <div>
+            <div id='' className=''>
               
               {getComments.length > 0 && getComments.map(comments => (
             <CommentBlock {...comments}/>

@@ -85,7 +85,7 @@ function Post_functionality() {
 
         <input 
         type='summary' 
-        placeholder='summary' 
+        placeholder='Please write one word to describe your post' 
         value={postSummary}
         onChange={ev => setPostSummary(ev.target.value)}
         className='block mb-[5px] w-[100%] p-[7px] bg-[#fff] border-solid border-2 border-sky-400 rounded-lg '>
