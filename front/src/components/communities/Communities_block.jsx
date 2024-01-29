@@ -4,10 +4,46 @@ import User from '../../assets/pictures/user_pic_1.png'
 import {useNavigate} from 'react-router-dom'
 
 function Communities_block({Community, people_joined}) {
-        const navigate = useNavigate()
+
+    const navigate = useNavigate()
+
     const goToPage = () => {
-        navigate('/user_Dashboard/post')
+        
+
+        switch (Community) {
+            case "Athlone":
+              console.log("Option A selected");
+              navigate('/user_Dashboard/athlone')
+              break;
+            
+            case "Bonteheuwel":
+              console.log("Option B selected");
+              navigate('/user_Dashboard/bonteheuwel')
+              break;
+          
+            case "Manenberg":
+              console.log("Option C selected");
+              navigate('/user_Dashboard/manenberg')
+              break;
+
+            case "Langa":
+                console.log("Option C selected");
+                navigate('/user_Dashboard/langa')
+                break;
+
+
+            case "Hanover Park":
+                console.log("Option C selected");
+                navigate('/user_Dashboard/hanover_park')
+                break;
+          
+            default:
+              console.log("Default case: Option not recognized");
+              break;
+          }
     }
+
+    
     
 
     // style={'box-shadow: 0px 1px 12px black; border-radius: 9999px'}

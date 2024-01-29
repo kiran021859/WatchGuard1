@@ -12,6 +12,11 @@ import Layout from './components/Layout/Layout';
 import Landing from './pages/landing page/Landing';
 import Post_page from './pages/post page/post_page';
 import Post_functionality from './pages/post fuctionality/Post_functionality';
+import Athlone from './pages/athlone/Athlone';
+import Bonteheuwel from './pages/bonteheuwel/Bonteheuwel';
+import Manenberg from './pages/manenberg/Manenberg';
+import Langa from './pages/langa/Langa';
+import Hanover_park from './pages/hanover park/Hanover_park'
 import {Routes, Route} from 'react-router-dom';
 import { UserContextProvider } from './context/userContext'
 
@@ -22,7 +27,6 @@ function App() {
 
   return (
     <>
-
     <UserContextProvider>
 
     <Routes>
@@ -38,6 +42,11 @@ function App() {
         <Route path={'/user_Dashboard/safety_tip'} element={<Safety/>} />
         <Route path={'/user_Dashboard/help'} element={<Help/>} />
         <Route path={'/user_Dashboard/profile'} element={<Profile/>} />
+        <Route path={'/user_Dashboard/athlone'} element={<Athlone/>} />
+        <Route path={'/user_Dashboard/bonteheuwel'} element={<Bonteheuwel/>} />
+        <Route path={'/user_Dashboard/manenberg'} element={<Manenberg/>} />
+        <Route path={'/user_Dashboard/langa'} element={<Langa/>} />
+        <Route path={'/user_Dashboard/hanover_park'} element={<Hanover_park/>} />
       </Route>
     </Routes>
 
