@@ -20,11 +20,11 @@ function Navbar() {
       <div id='' className=' bg-white h-screen grid grid-cols-navbar'>
         <nav>
 
-          <div className=' flex justify-center items-center' id='nav_heading'>
+          <div className=' flex justify-center items-center' id='nav_heading_landing'>
             <h1><span>W</span>atchGuard</h1>
           </div>
             
-          <div id='' className='text-center text-[25px] mt-[10%]'>
+          <div id='' className='text-center text-[25px] mt-[10%] mr-[10%] ml-[10%]'>
             <p>
               Empower your community with [Your App Name], 
               a cutting-edge application designed to enhance 
@@ -36,8 +36,8 @@ function Navbar() {
           </div>
 
           <div id='' className=' h-[25vh] flex flex-col items-center justify-between mt-[15%]'>
-            <Link to='/sign_up'><div id='link' className='bg-boring-blue w-[150px] h-[50px] rounded-[5px] text-[20px] font-[500] flex items-center justify-center'>Sign Up</div></Link>
-            <Link to='/login'><div id='link' className='bg-boring-blue w-[150px] h-[50px] rounded-[5px] text-[20px] font-[500] flex items-center justify-center'>Login</div></Link>
+            <Link to='/sign_up'><div id='' className='bg-boring-blue w-[150px] h-[50px] rounded-[5px] text-[20px] font-[500] flex items-center justify-center'>Sign Up</div></Link>
+            <Link to='/login'><div id='' className='bg-boring-blue w-[150px] h-[50px] rounded-[5px] text-[20px] font-[500] flex items-center justify-center'>Login</div></Link>
           </div>
         </nav>
 
