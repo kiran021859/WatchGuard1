@@ -12,6 +12,7 @@ function Post({_id, Title, Type, Content, createdAt}) {
   const [getComments, setGetComments] = useState([]);
   const {http} = useContext(UserContext);
   const [httpRequestSuccess, setHttpRequestSuccess] = useState(false);
+  const [commentVisible, setCommentVisible] = useState(false);
 
     useEffect(() => {
       const intervalId = setInterval(() => {
@@ -121,6 +122,21 @@ function Post({_id, Title, Type, Content, createdAt}) {
       }
     }
 
+    const viewComments = () => {
+       
+      
+      if (!commentVisible) {
+        setCommentVisible(true);
+        //console.log('comment is true');
+      }
+
+      if (commentVisible) {
+        setCommentVisible(false)
+        //console.log('comment is false');
+        
+      }
+    } 
+
 
     
   return (
@@ -152,12 +168,12 @@ function Post({_id, Title, Type, Content, createdAt}) {
           <div id='' className='' >#saveus</div>
         </div>
 
-        <div id='' className='h-[50px] w-[90%] flex items-end border-b-2 indigo-50'>
+        <div id='comments_line' onClick={viewComments} className='h-[50px] w-[90%] flex items-end border-b-2 indigo-50  mb-[20px]'>
           <h2 className='text-[grey]'>Comments</h2>
 
         </div>
 
-        <div id='comments_div'>
+        <div id='comments_div' className={`${ commentVisible? 'open':'closed'}`}>
           <div id='form_div' className=' mt-[10px] mb-[40px] pr-[130px] gap-6 '>
 
             <form id='form' className='' >
@@ -168,7 +184,6 @@ function Post({_id, Title, Type, Content, createdAt}) {
               onChange={ev => setComment(ev.target.value)}
               id='comment_input' 
               className='' >
-
               </input>
 
               <button id='post_button' className='' onClick={postComment}>

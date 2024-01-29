@@ -204,10 +204,13 @@
         justify-content: center;
     }
 
-    #comments_div{
+    #comments_div {
         width: 100%;
-        display: flex;
+        
         justify-content: center;
+    }
+    .open {
+        display: flex;
     }
 
     #form_div{
@@ -231,4 +234,40 @@
         
         
     }
+}
+
+
+
+.closed, .open{
+    
+    overflow-y: scroll;
+    animation: slideUp 1.5s ease forwards;
+    
+}
+
+.open {
+    display: flex;
+    animation: slideDown 1.5s ease forwards;
+}
+
+@keyframes slideDown {
+    from {
+        max-height: 0;
+    }
+    to {
+        max-height: 500px; 
+    }
+}
+
+@keyframes slideUp {
+    from {
+        max-height: 500px;
+    }
+    to {
+        max-height: 0; 
+    }
+}
+
+#comments_line{
+    cursor: pointer;
 }
