@@ -10,7 +10,7 @@ function post_page( ) {
   const {http} = useContext(UserContext);
 
  useEffect(() => {
-  fetch(`${http}/postData`, {
+  fetch(`${http}/postDataAthlone`, {
     method:'GET',
 
   })
@@ -23,11 +23,11 @@ function post_page( ) {
   
  }, [])
 
- 
+ const pageName = 'Athlone'
 
   return (
     <>
-      <Link to='/user_Dashboard/communities'>communities</Link>
+      <Link to={{ pathname: '/user_Dashboard/create_post', state: { pageName } }}>communities</Link>
         <div id='' className='flex flex-col items-center'>
           <Link to={'/user_Dashboard/create_post'}>
             <button className='xs:w-[90%] sm:w-[80%] md:w-[150px] lg:w-[150px] xl:w-[150px] 2xl:w-[150px] h-[50px] bg-boring-blue rounded-md fixed z-[100] xs:left-[7vw] sm:left-[12.5vw]  md:left-[80vw] lg:left-[85vw] xl:left-[85vw] 2xl:left-[85vw] xs:top-[90vh] sm:top-[90vh] md:top-[85vh] lg:top-[85vh] xl:top-[85vh] 2xl:top-[85vh]' id='create_post_button'>  

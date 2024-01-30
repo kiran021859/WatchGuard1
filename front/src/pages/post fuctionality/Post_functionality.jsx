@@ -4,8 +4,13 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { Navigate } from 'react-router-dom';
 import { UserContext } from '../../context/userContext';
+import { useLocation } from 'react-router-dom';
 
 function Post_functionality() {
+
+  const location = useLocation();
+  const { pageName } = location.state || {};
+  console.log('Page Name:', pageName);
   const  modules = {
     toolbar: [
       [{ 'header': [1, 2, false] }],
@@ -110,6 +115,8 @@ function Post_functionality() {
 
         <button className='w-[100%] block bg-[#555] text-white rounded-sm p-[5px] mt-[10px]'> Create Post</button>
     </form>
+
+    <h1>{pageName}</h1>
     </>
     
   )
