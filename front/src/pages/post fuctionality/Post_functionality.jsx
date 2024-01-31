@@ -99,7 +99,7 @@ function Post_functionality() {
           break;
 
 
-      case "Hanover Park":
+      case "Hanover_park":
           console.log("Option C selected");
           navigate('/user_Dashboard/hanover_park')
           break;
