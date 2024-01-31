@@ -4,13 +4,15 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { Navigate } from 'react-router-dom';
 import { UserContext } from '../../context/userContext';
-import { useLocation } from 'react-router-dom';
+
 
 function Post_functionality() {
 
-  const location = useLocation();
-  const { pageName } = location.state || {};
-  console.log('Page Name:', pageName);
+  
+  
+
+  
+
   const  modules = {
     toolbar: [
       [{ 'header': [1, 2, false] }],
@@ -35,8 +37,10 @@ function Post_functionality() {
   const [postFiles, setPostFiles] = useState('')
   const [content, setContent] = useState('')
   const [redirect, setRedirect] = useState(false)
-  const {http} = useContext(UserContext);
+  const {http, pageName} = useContext(UserContext);
 
+
+  
 
   async function createNewPost (ev) {
     // const data = new FormData();
