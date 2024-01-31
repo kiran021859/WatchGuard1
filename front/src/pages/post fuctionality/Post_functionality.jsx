@@ -2,14 +2,14 @@ import React, {useState, useContext} from 'react';
 import './post.css';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../context/userContext';
 
 
 function Post_functionality() {
 
   
-  
+  const navigate = useNavigate()
 
   
 
@@ -57,7 +57,7 @@ function Post_functionality() {
     
       console.log(postTitle, postSummary, content);
       const outContent = content.replace(/<\/?p>/g, '');
-      const response = await fetch(`${http}/postData`, {
+      const response = await fetch(`${http}/postData${pageName}`, {
       method: 'POST', 
       headers: {
         'Content-Type': 'application/json',
@@ -76,7 +76,39 @@ function Post_functionality() {
   }
 
   if(redirect) {
-    return <Navigate to={'/user_Dashboard/post'}/>
+
+    switch (pageName) {
+      case "Athlone":
+        console.log("Option A selected");
+        navigate('/user_Dashboard/athlone')
+        break;
+      
+      case "Bonteheuwel":
+        console.log("Option B selected");
+        navigate('/user_Dashboard/bonteheuwel')
+        break;
+    
+      case "Manenberg":
+        console.log("Option C selected");
+        navigate('/user_Dashboard/manenberg')
+        break;
+
+      case "Langa":
+          console.log("Option C selected");
+          navigate('/user_Dashboard/langa')
+          break;
+
+
+      case "Hanover Park":
+          console.log("Option C selected");
+          navigate('/user_Dashboard/hanover_park')
+          break;
+    
+      default:
+        console.log("Default case: Option not recognized");
+        break;
+    }
+    
   }
   
   return (
@@ -120,7 +152,7 @@ function Post_functionality() {
         <button className='w-[100%] block bg-[#555] text-white rounded-sm p-[5px] mt-[10px]'> Create Post</button>
     </form>
 
-    <h1>{pageName}</h1>
+    
     </>
     
   )
