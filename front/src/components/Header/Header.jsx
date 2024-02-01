@@ -3,11 +3,13 @@ import react, { useContext, useEffect, useState } from "react";
 import {MdOutlineDateRange} from 'react-icons/md';
 import { Link } from "react-router-dom";
 import { UserContext } from "../../context/userContext";
+import './header_style.css'
+
 
 
 function Header() {
     const [currentDateTime, setCurrentDateTime] = useState(new Date());
-    const {userInfo, http} = useContext(UserContext)
+    const {userInfo, setPageHeading, pageHeading} = useContext(UserContext)
 
     useEffect(() => {
       const intervalId = setInterval(() => {
@@ -22,29 +24,32 @@ function Header() {
     const year = currentDateTime.getFullYear();
     
     const username = userInfo?.username
-    
+    const pageName = 'Communities'
+    setPageHeading(pageName)
+
+
+    // {username && (
+    //   <>
+    //   <h1>You Are Loged In</h1>
+    //   </>
+    // )}
+    // {!username && (
+    //   <>
+    //   <h1>Please Login</h1>
+    //   </>
+    // )}
 
   return (
     <div className="flex w-full justify-between">
-    <div className="pt-[30px]">
-    {username && (
-      <>
-      <h1>You Are Loged In</h1>
-      </>
-    )}
-    {!username && (
-      <>
-      <h1>Please Login</h1>
-      </>
-    )}
-    <h1 className="text-[30px]">Welcome back, <span>{username}</span>!</h1>
-    <h2 className="text-[17px]">Checkout the latest update in your neighbourhood</h2>
+    <div className="">
+    
+    <h1 id="heading" className="text-[30px]">{pageHeading}</h1>
+    
     </div>
 
-    <button id="dateButton" className="flex justify-center items-center w-[166px] h-[58px] bg-transparent rounded-lg border-2 border-[#A7A7A7] text-[#A7A7A7]" >
-        <div><MdOutlineDateRange/></div>
-        <h3>{String(day)},0{String(month)},{String(year)}</h3>
-    </button>
+    <div>
+
+    </div>
   </div>
   )
 }
